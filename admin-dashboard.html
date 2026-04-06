@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard | STACKLY Medical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --primary-glow: rgba(14,165,233,0.15);
+      --teal: #14b8a6;
+      --teal-light: rgba(20,184,166,0.12);
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --purple: #8b5cf6;
+      --navy: #0f172a;
+      --navy-mid: #1e293b;
+      --text: #f1f5f9;
+      --text-mid: #94a3b8;
+      --text-dim: #475569;
+      --border: rgba(255,255,255,0.07);
+      --border-mid: rgba(255,255,255,0.12);
+      --glass: rgba(255,255,255,0.04);
+      --glass-hover: rgba(255,255,255,0.07);
+      --font-head: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius: 14px;
+      --radius-sm: 8px;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--font-body); background:var(--navy); color:var(--text); min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden; }
+
+    /* TOPBAR */
+    .topbar {
+      height:64px; background:rgba(15,23,42,0.95); backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border); display:flex; align-items:center;
+      padding:0 24px; gap:14px; position:sticky; top:0; z-index:200; flex-shrink:0;
+    }
+    .t-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+    .t-logo img { height:30px; width:auto; object-fit:contain; }
+    .t-logo-text { font-family:var(--font-head); font-size:1.15rem; font-weight:800; color:var(--text); }
+    .t-badge {
+      background:linear-gradient(135deg,var(--primary),var(--teal)); color:#fff;
+      font-size:0.58rem; font-weight:700; padding:2px 8px; border-radius:20px; text-transform:uppercase; letter-spacing:0.1em;
+    }
+    .t-divider { width:1px; height:26px; background:var(--border); flex-shrink:0; }
+    .t-search {
+      flex:1; max-width:340px; display:flex; align-items:center; gap:8px;
+      background:var(--glass); border:1px solid var(--border); border-radius:9px; padding:7px 13px;
+    }
+    .t-search i { color:var(--text-dim); font-size:0.9rem; }
+    .t-search input { background:none; border:none; outline:none; font-family:var(--font-body); font-size:0.84rem; color:var(--text); width:100%; }
+    .t-search input::placeholder { color:var(--text-dim); }
+    .t-right { margin-left:auto; display:flex; align-items:center; gap:8px; }
+    .t-icon {
+      position:relative; width:36px; height:36px; border-radius:9px;
+      border:1px solid var(--border); background:var(--glass);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--text-mid); cursor:pointer; font-size:0.95rem; transition:all 0.2s;
+    }
+    .t-icon:hover { border-color:var(--primary); color:var(--primary); }
+    .t-notif { position:absolute; top:5px; right:5px; width:7px; height:7px; background:var(--red); border-radius:50%; border:2px solid var(--navy); }
+    .t-user {
+      display:flex; align-items:center; gap:8px;
+      background:var(--glass); border:1px solid var(--border); border-radius:9px; padding:4px 11px 4px 4px; cursor:pointer; transition:all 0.2s;
+    }
+    .t-user:hover { border-color:var(--primary); }
+    .t-av {
+      width:27px; height:27px; border-radius:7px;
+      background:linear-gradient(135deg,var(--primary),var(--teal));
+      display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:700; color:#fff;
+    }
+    .t-username { font-size:0.8rem; font-weight:600; color:var(--text); }
+    .t-menu-btn {
+      display:none; width:36px; height:36px; border-radius:9px;
+      border:1px solid var(--border); background:var(--glass);
+      align-items:center; justify-content:center; color:var(--text-mid); cursor:pointer; font-size:1rem;
+    }
+
+    /* LAYOUT */
+    .layout { display:flex; flex:1; min-height:0; }
+
+    /* MAIN */
+    .main { flex:1; min-width:0; padding:26px 26px 40px; overflow-y:auto; }
+    /* MAIN */
+    .main { flex:1; min-width:0; padding:26px 26px 40px; overflow-y:auto; }
+    .ph { margin-bottom:22px; }
+    .ph h1 { font-family:var(--font-head); font-size:1.5rem; font-weight:800; }
+    .ph p { font-size:0.82rem; color:var(--text-mid); margin-top:3px; }
+
+    /* STATS */
+    .sg { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+    .sc {
+      background:var(--navy-mid); border:1px solid var(--border); border-radius:var(--radius);
+      padding:18px 20px; position:relative; overflow:hidden; transition:transform 0.2s;
+    }
+    .sc:hover { transform:translateY(-2px); }
+    .sc-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px; }
+    .sc-icon { width:40px; height:40px; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:1.05rem; }
+    .ic-blue { background:var(--primary-glow); color:var(--primary); }
+    .ic-teal { background:var(--teal-light); color:var(--teal); }
+    .ic-amber { background:rgba(245,158,11,0.12); color:var(--amber); }
+    .ic-red { background:rgba(239,68,68,0.12); color:var(--red); }
+    .ic-green { background:rgba(34,197,94,0.12); color:var(--green); }
+    .ic-purple { background:rgba(139,92,246,0.12); color:var(--purple); }
+    .sc-trend { display:flex; align-items:center; gap:3px; font-size:0.7rem; font-weight:600; padding:2px 7px; border-radius:20px; }
+    .trend-up { background:rgba(34,197,94,0.1); color:var(--green); }
+    .trend-down { background:rgba(239,68,68,0.1); color:var(--red); }
+    .sc-val { font-family:var(--font-head); font-size:1.85rem; font-weight:800; line-height:1; }
+    .sc-lbl { font-size:0.76rem; color:var(--text-mid); margin-top:4px; }
+
+    /* GRID LAYOUTS */
+    .g21 { display:grid; grid-template-columns:1fr 320px; gap:18px; margin-bottom:18px; }
+    .g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:18px; }
+    .g2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+
+    /* CARD */
+    .card { background:var(--navy-mid); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .ch { display:flex; align-items:center; justify-content:space-between; padding:15px 18px; border-bottom:1px solid var(--border); }
+    .ch-l { display:flex; align-items:center; gap:10px; }
+    .ch-ico { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; }
+    .ct { font-family:var(--font-head); font-size:0.93rem; font-weight:700; }
+    .cs { font-size:0.7rem; color:var(--text-dim); }
+    .ca { font-size:0.76rem; color:var(--primary); text-decoration:none; font-weight:600; }
+    .ca:hover { text-decoration:underline; }
+
+    /* TABLE */
+    .dt { width:100%; border-collapse:collapse; }
+    .dt th { text-align:left; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-dim); font-weight:700; padding:9px 18px; background:rgba(255,255,255,0.02); border-bottom:1px solid var(--border); }
+    .dt td { padding:12px 18px; border-bottom:1px solid var(--border); font-size:0.82rem; vertical-align:middle; }
+    .dt tr:last-child td { border-bottom:none; }
+    .dt tr:hover td { background:var(--glass); }
+    .pc { display:flex; align-items:center; gap:10px; }
+    .pav { width:30px; height:30px; border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.68rem; font-weight:700; color:#fff; }
+    .pn { font-weight:600; color:var(--text); font-size:0.83rem; }
+    .pid { font-size:0.68rem; color:var(--text-dim); }
+    .stag { display:inline-block; font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; padding:2px 8px; border-radius:4px; }
+    .t-tele { background:var(--primary-glow); color:var(--primary); }
+    .t-pharma { background:var(--teal-light); color:var(--teal); }
+    .t-diag { background:rgba(245,158,11,0.1); color:var(--amber); }
+    .t-pedi { background:rgba(139,92,246,0.12); color:var(--purple); }
+    .t-emerg { background:rgba(239,68,68,0.1); color:var(--red); }
+    .spill { display:inline-flex; align-items:center; gap:4px; font-size:0.7rem; font-weight:600; padding:3px 9px; border-radius:20px; }
+    .spill::before { content:''; width:5px; height:5px; border-radius:50%; }
+    .sp-conf { background:rgba(34,197,94,0.1); color:var(--green); } .sp-conf::before { background:var(--green); }
+    .sp-pend { background:rgba(245,158,11,0.1); color:var(--amber); } .sp-pend::before { background:var(--amber); }
+    .sp-canc { background:rgba(239,68,68,0.1); color:var(--red); } .sp-canc::before { background:var(--red); }
+    .sp-comp { background:rgba(14,165,233,0.1); color:var(--primary); } .sp-comp::before { background:var(--primary); }
+    .ta { display:flex; gap:5px; }
+    .tb { width:27px; height:27px; border-radius:6px; border:1px solid var(--border); background:var(--glass); display:flex; align-items:center; justify-content:center; font-size:0.72rem; color:var(--text-mid); cursor:pointer; transition:all 0.15s; }
+    .tb:hover { border-color:var(--primary); color:var(--primary); }
+    .tb.del:hover { border-color:var(--red); color:var(--red); }
+
+    /* ACTIVITY */
+    .ai { display:flex; align-items:flex-start; gap:11px; padding:12px 18px; border-bottom:1px solid var(--border); transition:background 0.15s; }
+    .ai:last-child { border-bottom:none; }
+    .ai:hover { background:var(--glass); }
+    .ad { width:30px; height:30px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; }
+    .at { font-size:0.81rem; color:var(--text); line-height:1.4; }
+    .at strong { color:var(--primary); }
+    .atm { font-size:0.68rem; color:var(--text-dim); margin-top:2px; }
+
+    /* DOCTORS */
+    .di { display:flex; align-items:center; gap:11px; padding:11px 18px; border-bottom:1px solid var(--border); transition:background 0.15s; }
+    .di:last-child { border-bottom:none; }
+    .di:hover { background:var(--glass); }
+    .dav { width:36px; height:36px; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.77rem; font-weight:700; color:#fff; }
+    .dn { font-size:0.82rem; font-weight:600; color:var(--text); }
+    .ds { font-size:0.7rem; color:var(--text-dim); }
+    .dr { margin-left:auto; text-align:right; }
+    .dp { font-size:0.8rem; font-weight:700; color:var(--primary); }
+    .drt { font-size:0.68rem; color:var(--amber); }
+
+    /* CHART */
+    .chart-a { padding:14px 18px 8px; }
+    .cr { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .cd { font-size:0.7rem; color:var(--text-dim); width:28px; flex-shrink:0; }
+    .ct2 { flex:1; height:7px; background:var(--glass-hover); border-radius:4px; overflow:hidden; }
+    .cf { height:100%; border-radius:4px; }
+    .cf-blue { background:linear-gradient(90deg,var(--primary),var(--teal)); }
+    .cf-teal { background:var(--teal); }
+    .cv { font-size:0.7rem; color:var(--text-mid); width:34px; text-align:right; flex-shrink:0; }
+
+    /* QUICK */
+    .qg { display:grid; grid-template-columns:1fr 1fr; gap:9px; padding:14px; }
+    .qb {
+      display:flex; flex-direction:column; align-items:flex-start; gap:5px;
+      padding:12px; border-radius:10px; border:1px solid var(--border); background:var(--glass);
+      cursor:pointer; text-decoration:none; transition:all 0.2s;
+    }
+    .qb:hover { border-color:var(--primary); background:var(--primary-glow); }
+    .qb i { font-size:1.1rem; color:var(--primary); }
+    .qb span { font-size:0.78rem; font-weight:600; color:var(--text); }
+    .qb small { font-size:0.66rem; color:var(--text-dim); }
+
+    /* INVENTORY */
+    .ii { display:flex; align-items:center; gap:10px; padding:11px 18px; border-bottom:1px solid var(--border); }
+    .ii:last-child { border-bottom:none; }
+    .in2 { font-size:0.81rem; font-weight:500; color:var(--text); flex:1; }
+    .ib { width:76px; }
+    .ibt { height:5px; background:var(--glass-hover); border-radius:3px; overflow:hidden; }
+    .ibf { height:100%; border-radius:3px; }
+    .ic2 { font-size:0.7rem; color:var(--text-dim); width:38px; text-align:right; }
+    .ist { font-size:0.63rem; font-weight:700; padding:2px 7px; border-radius:4px; }
+    .is-ok { background:rgba(34,197,94,0.1); color:var(--green); }
+    .is-low { background:rgba(245,158,11,0.1); color:var(--amber); }
+    .is-crit { background:rgba(239,68,68,0.1); color:var(--red); }
+
+    /* RESPONSIVE */
+    @media(max-width:1200px){
+      .sg{grid-template-columns:repeat(2,1fr);}
+      .g21{grid-template-columns:1fr;}
+      .g3{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:1024px){
+      .t-search{display:none;}
+    }
+    @media(max-width:768px){
+      .main{padding:18px 12px 32px;}
+      .sg{gap:10px;}
+      .g3{grid-template-columns:1fr;}
+      .g2{grid-template-columns:1fr;}
+      .dt th:nth-child(4),.dt td:nth-child(4),
+      .dt th:nth-child(5),.dt td:nth-child(5){display:none;}
+    }
+    @media(max-width:480px){
+      .sg{grid-template-columns:1fr 1fr;}
+    }
+
+    /* PRELOADER */
+    #preloader {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: var(--navy); display: flex; flex-direction: column;
+      justify-content: center; align-items: center; z-index: 99999;
+      transition: opacity 0.4s ease-out, visibility 0.4s;
+    }
+    #preloader.fade-out { opacity: 0; visibility: hidden; }
+    .loader-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .loader-ring {
+      width: 60px; height: 60px; border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.05); border-top: 3px solid var(--primary);
+      animation: rotate 1s linear infinite;
+    }
+    .loader-logo {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+    }
+    .loader-logo i { font-size: 1.2rem; color: var(--primary); animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+  </style>
+</head>
+<body>
+
+<!-- Premium Preloader -->
+<div id="preloader">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <div class="loader-logo"><i class="ri-heart-pulse-fill"></i></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index.html" class="t-logo">
+    <img src="assets/img/logo.webp" alt="STACKLY">
+    <span class="t-logo-text">STACKLY</span>
+  </a>
+  <span class="t-badge">Admin</span>
+  <div class="t-divider"></div>
+  <a href="javascript:history.back()" class="t-icon" title="Go Back"><i class="ri-arrow-left-line"></i></a>
+  <div class="t-right">
+    <div class="t-icon"><i class="ri-notification-3-line"></i><div class="t-notif"></div></div>
+    <div class="t-icon"><i class="ri-message-3-line"></i></div>
+    <div class="t-icon"><i class="ri-settings-3-line"></i></div>
+    <div class="t-user"><div class="t-av">AD</div><span class="t-username">Dr. Admin</span></div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="ph">
+      <h1>Admin Dashboard</h1>
+      <p>Monday, April 6, 2026 · Salem, Tamil Nadu · <span style="color:var(--green)">All Systems Normal</span></p>
+    </div>
+
+    <!-- STATS -->
+    <div class="sg">
+      <div class="sc">
+        <div class="sc-top">
+          <div class="sc-icon ic-blue"><i class="ri-user-heart-line"></i></div>
+          <div class="sc-trend trend-up"><i class="ri-arrow-up-line"></i> 12.4%</div>
+        </div>
+        <div class="sc-val">52,840</div>
+        <div class="sc-lbl">Total Patients</div>
+      </div>
+      <div class="sc">
+        <div class="sc-top">
+          <div class="sc-icon ic-teal"><i class="ri-calendar-check-line"></i></div>
+          <div class="sc-trend trend-up"><i class="ri-arrow-up-line"></i> 8.1%</div>
+        </div>
+        <div class="sc-val">248</div>
+        <div class="sc-lbl">Appointments Today</div>
+      </div>
+      <div class="sc">
+        <div class="sc-top">
+          <div class="sc-icon ic-amber"><i class="ri-money-dollar-circle-line"></i></div>
+          <div class="sc-trend trend-up"><i class="ri-arrow-up-line"></i> 5.3%</div>
+        </div>
+        <div class="sc-val">₹4.2L</div>
+        <div class="sc-lbl">Monthly Revenue</div>
+      </div>
+      <div class="sc">
+        <div class="sc-top">
+          <div class="sc-icon ic-red"><i class="ri-alarm-warning-line"></i></div>
+          <div class="sc-trend trend-down"><i class="ri-arrow-down-line"></i> 2.0%</div>
+        </div>
+        <div class="sc-val">7</div>
+        <div class="sc-lbl">Emergency Cases</div>
+      </div>
+    </div>
+
+    <!-- APPOINTMENTS + ACTIVITY -->
+    <div class="g21">
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l">
+            <div class="ch-ico ic-blue"><i class="ri-calendar-line"></i></div>
+            <div><div class="ct">Today's Appointments</div><div class="cs">248 scheduled · 14 pending</div></div>
+          </div>
+          <a href="#" class="ca">View All →</a>
+        </div>
+        <table class="dt">
+          <thead>
+            <tr>
+              <th>Patient</th><th>Doctor</th><th>Service</th><th>Time</th><th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="pc"><div class="pav" style="background:linear-gradient(135deg,#0ea5e9,#14b8a6)">AR</div><div><div class="pn">Aarav Rajan</div><div class="pid">#P-10041</div></div></div></td>
+              <td style="color:var(--text-mid)">Dr. Sarah Jenkins</td>
+              <td><span class="stag t-tele">Teleconsult</span></td>
+              <td style="color:var(--text-mid)">09:00 AM</td>
+              <td><span class="spill sp-conf">Confirmed</span></td>
+              <td><div class="ta"><div class="tb"><i class="ri-eye-line"></i></div><div class="tb"><i class="ri-edit-line"></i></div></div></td>
+            </tr>
+            <tr>
+              <td><div class="pc"><div class="pav" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">PK</div><div><div class="pn">Priya Krishnan</div><div class="pid">#P-10042</div></div></div></td>
+              <td style="color:var(--text-mid)">Dr. Emily Roberts</td>
+              <td><span class="stag t-pedi">Pediatrics</span></td>
+              <td style="color:var(--text-mid)">10:30 AM</td>
+              <td><span class="spill sp-pend">Pending</span></td>
+              <td><div class="ta"><div class="tb"><i class="ri-eye-line"></i></div><div class="tb"><i class="ri-edit-line"></i></div></div></td>
+            </tr>
+            <tr>
+              <td><div class="pc"><div class="pav" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">MS</div><div><div class="pn">Mohammed Salim</div><div class="pid">#P-10043</div></div></div></td>
+              <td style="color:var(--text-mid)">Dr. Michael Chen</td>
+              <td><span class="stag t-diag">Diagnostics</span></td>
+              <td style="color:var(--text-mid)">11:00 AM</td>
+              <td><span class="spill sp-comp">Completed</span></td>
+              <td><div class="ta"><div class="tb"><i class="ri-eye-line"></i></div><div class="tb del"><i class="ri-delete-bin-line"></i></div></div></td>
+            </tr>
+            <tr>
+              <td><div class="pc"><div class="pav" style="background:linear-gradient(135deg,#22c55e,#0ea5e9)">SN</div><div><div class="pn">Sunita Nair</div><div class="pid">#P-10044</div></div></div></td>
+              <td style="color:var(--text-mid)">Dr. Sarah Jenkins</td>
+              <td><span class="stag t-pharma">Pharmacy</span></td>
+              <td style="color:var(--text-mid)">01:15 PM</td>
+              <td><span class="spill sp-conf">Confirmed</span></td>
+              <td><div class="ta"><div class="tb"><i class="ri-eye-line"></i></div><div class="tb"><i class="ri-edit-line"></i></div></div></td>
+            </tr>
+            <tr>
+              <td><div class="pc"><div class="pav" style="background:linear-gradient(135deg,#ef4444,#8b5cf6)">RP</div><div><div class="pn">Ravi Pillai</div><div class="pid">#P-10045</div></div></div></td>
+              <td style="color:var(--text-mid)">Dr. Michael Chen</td>
+              <td><span class="stag t-emerg">Emergency</span></td>
+              <td style="color:var(--text-mid)">02:45 PM</td>
+              <td><span class="spill sp-canc">Cancelled</span></td>
+              <td><div class="ta"><div class="tb"><i class="ri-eye-line"></i></div><div class="tb del"><i class="ri-delete-bin-line"></i></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-teal"><i class="ri-pulse-line"></i></div><div><div class="ct">Live Activity</div></div></div>
+          <a href="#" class="ca">All →</a>
+        </div>
+        <div class="ai"><div class="ad ic-green"><i class="ri-user-add-line"></i></div><div><div class="at"><strong>New patient</strong> Aarav Rajan registered</div><div class="atm">2 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-red"><i class="ri-alarm-warning-line"></i></div><div><div class="at"><strong>Emergency alert</strong> — Bay 3 occupied</div><div class="atm">8 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-blue"><i class="ri-vidicon-line"></i></div><div><div class="at"><strong>Teleconsult</strong> started by Dr. Jenkins</div><div class="atm">15 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-teal"><i class="ri-capsule-line"></i></div><div><div class="at"><strong>Pharmacy order</strong> #PH-8821 dispatched</div><div class="atm">22 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-amber"><i class="ri-file-text-line"></i></div><div><div class="at"><strong>Lab report</strong> ready for Patient #P-10040</div><div class="atm">34 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-green"><i class="ri-money-dollar-circle-line"></i></div><div><div class="at"><strong>Payment received</strong> ₹3,500 · Inv #1042</div><div class="atm">45 min ago</div></div></div>
+        <div class="ai"><div class="ad ic-blue"><i class="ri-calendar-check-line"></i></div><div><div class="at"><strong>Appointment booked</strong> by Sunita Nair</div><div class="atm">1 hr ago</div></div></div>
+        <div class="ai"><div class="ad ic-red"><i class="ri-archive-line"></i></div><div><div class="at"><strong>Inventory alert</strong> — Amoxicillin low</div><div class="atm">2 hrs ago</div></div></div>
+      </div>
+    </div>
+
+    <!-- DOCTORS + CHART + QUICK ACTIONS -->
+    <div class="g3">
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-teal"><i class="ri-team-line"></i></div><div><div class="ct">Top Doctors</div><div class="cs">By patient count</div></div></div>
+          <a href="#" class="ca">All →</a>
+        </div>
+        <div class="di"><div class="dav" style="background:linear-gradient(135deg,#0ea5e9,#14b8a6)">SJ</div><div><div class="dn">Dr. Sarah Jenkins</div><div class="ds">Cardiologist</div></div><div class="dr"><div class="dp">284 pts</div><div class="drt"><i class="ri-star-fill"></i> 4.9</div></div></div>
+        <div class="di"><div class="dav" style="background:linear-gradient(135deg,#8b5cf6,#ec4899)">MC</div><div><div class="dn">Dr. Michael Chen</div><div class="ds">Neurologist</div></div><div class="dr"><div class="dp">221 pts</div><div class="drt"><i class="ri-star-fill"></i> 5.0</div></div></div>
+        <div class="di"><div class="dav" style="background:linear-gradient(135deg,#22c55e,#0ea5e9)">ER</div><div><div class="dn">Dr. Emily Roberts</div><div class="ds">Pediatrician</div></div><div class="dr"><div class="dp">198 pts</div><div class="drt"><i class="ri-star-fill"></i> 4.8</div></div></div>
+        <div class="di"><div class="dav" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">AK</div><div><div class="dn">Dr. Anita Kumar</div><div class="ds">Dermatologist</div></div><div class="dr"><div class="dp">176 pts</div><div class="drt"><i class="ri-star-fill"></i> 4.7</div></div></div>
+        <div class="di"><div class="dav" style="background:linear-gradient(135deg,#ef4444,#8b5cf6)">VP</div><div><div class="dn">Dr. Vikram Pillai</div><div class="ds">Orthopedic</div></div><div class="dr"><div class="dp">154 pts</div><div class="drt"><i class="ri-star-fill"></i> 4.6</div></div></div>
+      </div>
+
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-blue"><i class="ri-bar-chart-2-line"></i></div><div><div class="ct">Weekly Appointments</div><div class="cs">This week</div></div></div>
+        </div>
+        <div class="chart-a">
+          <div class="cr"><span class="cd">Mon</span><div class="ct2"><div class="cf cf-blue" style="width:72%"></div></div><span class="cv">180</span></div>
+          <div class="cr"><span class="cd">Tue</span><div class="ct2"><div class="cf cf-blue" style="width:85%"></div></div><span class="cv">212</span></div>
+          <div class="cr"><span class="cd">Wed</span><div class="ct2"><div class="cf cf-blue" style="width:60%"></div></div><span class="cv">152</span></div>
+          <div class="cr"><span class="cd">Thu</span><div class="ct2"><div class="cf cf-blue" style="width:91%"></div></div><span class="cv">228</span></div>
+          <div class="cr"><span class="cd">Fri</span><div class="ct2"><div class="cf cf-blue" style="width:78%"></div></div><span class="cv">194</span></div>
+          <div class="cr"><span class="cd">Sat</span><div class="ct2"><div class="cf cf-teal" style="width:66%"></div></div><span class="cv">165</span></div>
+          <div class="cr"><span class="cd">Today</span><div class="ct2"><div class="cf cf-blue" style="width:99%"></div></div><span class="cv">248</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-purple"><i class="ri-flashlight-line"></i></div><div><div class="ct">Quick Actions</div></div></div>
+        </div>
+        <div class="qg">
+          <a href="#" class="qb"><i class="ri-user-add-line"></i><span>Add Patient</span><small>Register new</small></a>
+          <a href="#" class="qb"><i class="ri-calendar-add-line"></i><span>New Appt.</span><small>Schedule</small></a>
+          <a href="#" class="qb"><i class="ri-file-text-line"></i><span>Lab Report</span><small>Upload result</small></a>
+          <a href="#" class="qb"><i class="ri-capsule-line"></i><span>Prescription</span><small>Issue Rx</small></a>
+          <a href="#" class="qb"><i class="ri-alarm-warning-line"></i><span>Emergency</span><small>Dispatch now</small></a>
+          <a href="#" class="qb"><i class="ri-money-dollar-circle-line"></i><span>Invoice</span><small>Generate bill</small></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVENTORY + REVENUE -->
+    <div class="g2">
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-amber"><i class="ri-capsule-line"></i></div><div><div class="ct">Pharmacy Inventory</div><div class="cs">3 items need restocking</div></div></div>
+          <a href="#" class="ca">Manage →</a>
+        </div>
+        <div class="ii"><div class="in2">Paracetamol 500mg</div><div class="ib"><div class="ibt"><div class="ibf" style="width:85%;background:var(--green)"></div></div></div><div class="ic2">850 u.</div><span class="ist is-ok">Good</span></div>
+        <div class="ii"><div class="in2">Amoxicillin 250mg</div><div class="ib"><div class="ibt"><div class="ibf" style="width:18%;background:var(--red)"></div></div></div><div class="ic2">90 u.</div><span class="ist is-crit">Critical</span></div>
+        <div class="ii"><div class="in2">Metformin 500mg</div><div class="ib"><div class="ibt"><div class="ibf" style="width:65%;background:var(--primary)"></div></div></div><div class="ic2">320 u.</div><span class="ist is-ok">Good</span></div>
+        <div class="ii"><div class="in2">Atorvastatin 20mg</div><div class="ib"><div class="ibt"><div class="ibf" style="width:28%;background:var(--amber)"></div></div></div><div class="ic2">140 u.</div><span class="ist is-low">Low</span></div>
+        <div class="ii"><div class="in2">Vitamin D3 1000IU</div><div class="ib"><div class="ibt"><div class="ibf" style="width:72%;background:var(--teal)"></div></div></div><div class="ic2">360 u.</div><span class="ist is-ok">Good</span></div>
+        <div class="ii"><div class="in2">Insulin Glargine</div><div class="ib"><div class="ibt"><div class="ibf" style="width:22%;background:var(--amber)"></div></div></div><div class="ic2">55 u.</div><span class="ist is-low">Low</span></div>
+      </div>
+
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-green"><i class="ri-money-dollar-circle-line"></i></div><div><div class="ct">Revenue Breakdown</div><div class="cs">April 2026</div></div></div>
+        </div>
+        <div class="chart-a" style="padding-top:18px">
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.77rem;color:var(--text-mid)">Teleconsultation</span><span style="font-size:0.8rem;font-weight:600">₹1,24,000</span></div>
+            <div style="height:7px;background:var(--glass-hover);border-radius:4px;overflow:hidden"><div style="height:100%;width:78%;background:linear-gradient(90deg,var(--primary),var(--teal));border-radius:4px"></div></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.77rem;color:var(--text-mid)">Diagnostics & Labs</span><span style="font-size:0.8rem;font-weight:600">₹98,500</span></div>
+            <div style="height:7px;background:var(--glass-hover);border-radius:4px;overflow:hidden"><div style="height:100%;width:62%;background:linear-gradient(90deg,var(--amber),#f97316);border-radius:4px"></div></div>
+          </div>
+          <div style="margin-bottom:16px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.77rem;color:var(--text-mid)">Digital Pharmacy</span><span style="font-size:0.8rem;font-weight:600">₹76,200</span></div>
+            <div style="height:7px;background:var(--glass-hover);border-radius:4px;overflow:hidden"><div style="height:100%;width:48%;background:linear-gradient(90deg,var(--purple),#ec4899);border-radius:4px"></div></div>
+          </div>
+          <div style="margin-bottom:18px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:0.77rem;color:var(--text-mid)">Inpatient & Emergency</span><span style="font-size:0.8rem;font-weight:600">₹1,22,300</span></div>
+            <div style="height:7px;background:var(--glass-hover);border-radius:4px;overflow:hidden"><div style="height:100%;width:77%;background:linear-gradient(90deg,var(--red),#f97316);border-radius:4px"></div></div>
+          </div>
+          <div style="padding:13px;background:var(--glass);border-radius:10px;border:1px solid var(--border-mid);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:0.8rem;color:var(--text-mid)">Total Revenue</span>
+            <span style="font-family:var(--font-head);font-size:1.35rem;font-weight:800;background:linear-gradient(90deg,var(--primary),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent">₹4,21,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Preloader Logic
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => { preloader.style.display = 'none'; }, 400);
+      }, 600);
+    }
+  });
+
+  document.querySelectorAll('.s-link').forEach(l => l.addEventListener('click', function(){ document.querySelectorAll('.s-link').forEach(x=>x.classList.remove('active')); this.classList.add('active'); }));
+
+  // Personalization Script
+  document.addEventListener('DOMContentLoaded', () => {
+    const userName = localStorage.getItem('userName');
+    
+    if (userName) {
+      const nameParts = userName.split('@')[0];
+      const displayName = nameParts.charAt(0).toUpperCase() + nameParts.slice(1);
+      
+      const elUserNameTxt = document.querySelector('.t-username');
+      const elUserAvatar = document.querySelector('.t-av');
+
+      if (elUserNameTxt) elUserNameTxt.textContent = 'Admin ' + displayName;
+      if (elUserAvatar) elUserAvatar.textContent = displayName.charAt(0).toUpperCase();
+    }
+  });
+</script>
+</body>
+</html>

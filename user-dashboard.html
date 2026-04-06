@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Health Dashboard | STACKLY Medical</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0ea5e9;
+      --primary-dark: #0284c7;
+      --primary-glow: rgba(14,165,233,0.15);
+      --teal: #14b8a6;
+      --teal-light: rgba(20,184,166,0.12);
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --purple: #8b5cf6;
+      --bg: #f0f7ff;
+      --white: #ffffff;
+      --card: #ffffff;
+      --text: #0f172a;
+      --text-mid: #475569;
+      --text-dim: #94a3b8;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --nav-bg: #ffffff;
+      --font-head: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow: 0 2px 16px rgba(14,165,233,0.08);
+      --shadow-md: 0 4px 24px rgba(14,165,233,0.12);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:var(--font-body); background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden; }
+
+    /* TOPBAR */
+    .topbar {
+      height:64px; background:var(--white); border-bottom:1px solid var(--border);
+      display:flex; align-items:center; padding:0 24px; gap:14px;
+      position:sticky; top:0; z-index:200; flex-shrink:0;
+    }
+    .t-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+    .t-logo img { height:32px; width:auto; object-fit:contain; }
+    .t-logo-text { font-family:var(--font-head); font-size:1.15rem; font-weight:800; color:var(--text); }
+    .t-divider { width:1px; height:26px; background:var(--border); flex-shrink:0; }
+    .t-search { flex:1; max-width:300px; display:flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--border); border-radius:9px; padding:7px 13px; }
+    .t-search i { color:var(--text-dim); font-size:0.9rem; }
+    .t-search input { background:none; border:none; outline:none; font-family:var(--font-body); font-size:0.84rem; color:var(--text); width:100%; }
+    .t-search input::placeholder { color:var(--text-dim); }
+    .t-right { margin-left:auto; display:flex; align-items:center; gap:8px; }
+    .t-icon { position:relative; width:36px; height:36px; border-radius:9px; border:1px solid var(--border); background:var(--white); display:flex; align-items:center; justify-content:center; color:var(--text-mid); cursor:pointer; font-size:0.95rem; transition:all 0.2s; }
+    .t-icon:hover { border-color:var(--primary); color:var(--primary); }
+    .t-notif { position:absolute; top:5px; right:5px; width:7px; height:7px; background:var(--red); border-radius:50%; border:2px solid var(--white); }
+    .t-user { display:flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--border); border-radius:9px; padding:4px 12px 4px 4px; cursor:pointer; transition:all 0.2s; }
+    .t-user:hover { border-color:var(--primary); }
+    .t-av { width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--primary),var(--teal)); display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:700; color:#fff; }
+    .t-username { font-size:0.82rem; font-weight:600; color:var(--text); }
+    .t-menu-btn { display:none; width:36px; height:36px; border-radius:9px; border:1px solid var(--border); background:var(--white); align-items:center; justify-content:center; color:var(--text-mid); cursor:pointer; font-size:1rem; }
+
+    /* LAYOUT */
+    .layout { display:flex; flex:1; min-height:0; }
+
+    /* MAIN */
+    .main { flex:1; min-width:0; padding:24px 24px 40px; overflow-y:auto; }
+
+    /* WELCOME BANNER */
+    .welcome-banner {
+      background:linear-gradient(135deg,#0ea5e9 0%,#14b8a6 100%);
+      border-radius:var(--radius); padding:24px 28px; margin-bottom:20px;
+      display:flex; align-items:center; gap:20px; position:relative; overflow:hidden;
+    }
+    .welcome-banner::before { content:''; position:absolute; top:-40px; right:-40px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,0.07); }
+    .welcome-banner::after { content:''; position:absolute; bottom:-60px; right:100px; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,0.05); }
+    .wb-icon { width:56px; height:56px; border-radius:16px; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:#fff; flex-shrink:0; }
+    .wb-text { flex:1; }
+    .wb-text h2 { font-family:var(--font-head); font-size:1.25rem; font-weight:800; color:#fff; }
+    .wb-text p { font-size:0.83rem; color:rgba(255,255,255,0.8); margin-top:3px; }
+    .wb-right { flex-shrink:0; text-align:right; }
+    .wb-next { font-size:0.72rem; color:rgba(255,255,255,0.7); }
+    .wb-appt { font-family:var(--font-head); font-size:1rem; font-weight:700; color:#fff; margin-top:4px; }
+    .wb-btn { margin-top:10px; display:inline-block; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); color:#fff; font-size:0.78rem; font-weight:600; padding:7px 16px; border-radius:8px; text-decoration:none; transition:all 0.2s; }
+    .wb-btn:hover { background:rgba(255,255,255,0.3); }
+
+    /* HEALTH STATS */
+    .hs { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+    .hsc { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; display:flex; align-items:center; gap:13px; box-shadow:var(--shadow); transition:all 0.2s; }
+    .hsc:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); }
+    .hsc-icon { width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .hsc-val { font-family:var(--font-head); font-size:1.5rem; font-weight:800; color:var(--text); line-height:1; }
+    .hsc-lbl { font-size:0.72rem; color:var(--text-mid); margin-top:3px; }
+    .hsc-sub { font-size:0.68rem; color:var(--text-dim); margin-top:1px; }
+
+    /* GRID */
+    .g21 { display:grid; grid-template-columns:1fr 300px; gap:18px; margin-bottom:18px; }
+    .g2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+
+    /* CARD */
+    .card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
+    .ch { display:flex; align-items:center; justify-content:space-between; padding:15px 18px; border-bottom:1px solid var(--border-light); }
+    .ch-l { display:flex; align-items:center; gap:10px; }
+    .ch-ico { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:0.85rem; }
+    .ic-blue { background:var(--primary-glow); color:var(--primary); }
+    .ic-teal { background:var(--teal-light); color:var(--teal); }
+    .ic-amber { background:rgba(245,158,11,0.1); color:var(--amber); }
+    .ic-red { background:rgba(239,68,68,0.1); color:var(--red); }
+    .ic-green { background:rgba(34,197,94,0.1); color:var(--green); }
+    .ic-purple { background:rgba(139,92,246,0.1); color:var(--purple); }
+    .ct { font-family:var(--font-head); font-size:0.93rem; font-weight:700; color:var(--text); }
+    .cs { font-size:0.7rem; color:var(--text-dim); }
+    .ca { font-size:0.76rem; color:var(--primary); text-decoration:none; font-weight:600; }
+    .ca:hover { text-decoration:underline; }
+
+    /* APPOINTMENTS */
+    .apt-item { display:flex; align-items:center; gap:13px; padding:14px 18px; border-bottom:1px solid var(--border-light); transition:background 0.15s; }
+    .apt-item:last-child { border-bottom:none; }
+    .apt-item:hover { background:var(--bg); }
+    .apt-date { width:44px; height:48px; border-radius:11px; background:var(--primary-glow); display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; }
+    .apt-day { font-family:var(--font-head); font-size:1.2rem; font-weight:800; color:var(--primary); line-height:1; }
+    .apt-mon { font-size:0.62rem; font-weight:600; color:var(--primary); text-transform:uppercase; }
+    .apt-info { flex:1; min-width:0; }
+    .apt-doc { font-size:0.86rem; font-weight:600; color:var(--text); }
+    .apt-spec { font-size:0.72rem; color:var(--text-dim); }
+    .apt-time { font-size:0.72rem; color:var(--text-mid); margin-top:3px; display:flex; align-items:center; gap:4px; }
+    .apt-right { text-align:right; flex-shrink:0; }
+    .apt-type { font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:4px; text-transform:uppercase; letter-spacing:0.05em; }
+    .ap-tele { background:var(--primary-glow); color:var(--primary); }
+    .ap-visit { background:var(--teal-light); color:var(--teal); }
+    .apt-status { font-size:0.7rem; margin-top:4px; }
+    .apt-btn { margin-top:5px; background:var(--primary); color:#fff; border:none; border-radius:6px; font-family:var(--font-body); font-size:0.7rem; font-weight:600; padding:4px 10px; cursor:pointer; transition:all 0.2s; }
+    .apt-btn:hover { background:var(--primary-dark); }
+    .apt-btn.outline { background:none; color:var(--primary); border:1px solid var(--primary); }
+
+    /* VITALS */
+    .vital-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:14px; }
+    .vital-card { background:var(--bg); border:1px solid var(--border-light); border-radius:11px; padding:13px; }
+    .vital-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+    .vital-label { font-size:0.72rem; color:var(--text-dim); font-weight:500; }
+    .vital-status { font-size:0.62rem; font-weight:700; padding:2px 7px; border-radius:4px; }
+    .vs-normal { background:rgba(34,197,94,0.1); color:var(--green); }
+    .vs-attention { background:rgba(245,158,11,0.1); color:var(--amber); }
+    .vital-val { font-family:var(--font-head); font-size:1.35rem; font-weight:800; color:var(--text); }
+    .vital-unit { font-size:0.7rem; color:var(--text-dim); }
+    .vital-bar { height:4px; background:var(--border); border-radius:2px; margin-top:8px; overflow:hidden; }
+    .vital-fill { height:100%; border-radius:2px; }
+
+    /* NOTIFICATIONS */
+    .ni { display:flex; align-items:flex-start; gap:11px; padding:13px 18px; border-bottom:1px solid var(--border-light); transition:background 0.15s; }
+    .ni:last-child { border-bottom:none; }
+    .ni:hover { background:var(--bg); }
+    .ni.unread { background:rgba(14,165,233,0.03); }
+    .nd { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.77rem; }
+    .nt { font-size:0.82rem; color:var(--text); line-height:1.4; }
+    .nt strong { font-weight:600; color:var(--primary-dark); }
+    .ntm { font-size:0.69rem; color:var(--text-dim); margin-top:2px; }
+    .n-dot { width:7px; height:7px; border-radius:50%; background:var(--primary); margin-left:auto; flex-shrink:0; margin-top:3px; }
+
+    /* PRESCRIPTIONS */
+    .rx-item { display:flex; align-items:center; gap:12px; padding:12px 18px; border-bottom:1px solid var(--border-light); transition:background 0.15s; }
+    .rx-item:last-child { border-bottom:none; }
+    .rx-item:hover { background:var(--bg); }
+    .rx-icon { width:36px; height:36px; border-radius:10px; background:var(--primary-glow); display:flex; align-items:center; justify-content:center; font-size:0.9rem; color:var(--primary); flex-shrink:0; }
+    .rx-name { font-size:0.84rem; font-weight:600; color:var(--text); }
+    .rx-dose { font-size:0.7rem; color:var(--text-dim); margin-top:1px; }
+    .rx-right { margin-left:auto; text-align:right; flex-shrink:0; }
+    .rx-refill { font-size:0.7rem; color:var(--text-dim); }
+    .rx-btn { margin-top:4px; background:none; border:1px solid var(--primary); color:var(--primary); border-radius:5px; font-family:var(--font-body); font-size:0.68rem; font-weight:600; padding:3px 9px; cursor:pointer; transition:all 0.2s; }
+    .rx-btn:hover { background:var(--primary); color:#fff; }
+
+    /* TABS */
+    .tabs { display:flex; border-bottom:1px solid var(--border-light); padding:0 18px; }
+    .tab-btn { padding:11px 14px; font-size:0.82rem; font-weight:500; color:var(--text-dim); border:none; background:none; cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; transition:all 0.2s; font-family:var(--font-body); }
+    .tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); font-weight:600; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+
+    /* FORM */
+    .pf { padding:18px; }
+    .fr { display:grid; grid-template-columns:1fr 1fr; gap:13px; margin-bottom:13px; }
+    .fg { display:flex; flex-direction:column; gap:5px; }
+    .fg label { font-size:0.73rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-mid); }
+    .fg input, .fg select { padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-family:var(--font-body); font-size:0.85rem; color:var(--text); background:var(--white); outline:none; transition:border-color 0.2s; }
+    .fg input:focus, .fg select:focus { border-color:var(--primary); }
+    .btn-save { background:linear-gradient(135deg,var(--primary),var(--teal)); color:#fff; border:none; border-radius:9px; padding:10px 22px; font-family:var(--font-head); font-size:0.9rem; font-weight:700; cursor:pointer; transition:all 0.2s; }
+    .btn-save:hover { opacity:0.9; transform:translateY(-1px); }
+    .btn-secondary { background:none; color:var(--text-mid); border:1px solid var(--border); border-radius:9px; padding:10px 22px; font-family:var(--font-head); font-size:0.9rem; font-weight:600; cursor:pointer; margin-left:10px; transition:all 0.2s; }
+    .btn-secondary:hover { border-color:var(--primary); color:var(--primary); }
+
+    /* HEALTH PLAN */
+    .plan-banner { margin:14px; background:linear-gradient(135deg,var(--primary),var(--teal)); border-radius:12px; padding:16px 18px; }
+    .plan-name { font-family:var(--font-head); font-size:1rem; font-weight:800; color:#fff; display:flex; align-items:center; gap:8px; }
+    .plan-desc { font-size:0.77rem; color:rgba(255,255,255,0.8); margin-top:4px; }
+    .plan-expires { font-size:0.7rem; color:rgba(255,255,255,0.6); margin-top:8px; }
+    .plan-progress { height:5px; background:rgba(255,255,255,0.25); border-radius:3px; margin-top:8px; overflow:hidden; }
+    .plan-progress-fill { height:100%; background:#fff; border-radius:3px; width:68%; }
+
+    /* RESPONSIVE */
+    @media(max-width:1200px){
+      .hs{grid-template-columns:repeat(2,1fr);}
+      .g21{grid-template-columns:1fr;}
+    }
+    @media(max-width:768px){
+      .main{padding:16px 12px 32px;}
+      .g2{grid-template-columns:1fr;}
+      .hs{gap:10px;}
+      .welcome-banner{flex-wrap:wrap;}
+      .wb-right{width:100%;text-align:left;}
+      .fr{grid-template-columns:1fr;}
+      .vital-grid{grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:480px){
+      .topbar{padding:0 12px;gap:8px;}
+      .hs{grid-template-columns:1fr 1fr;}
+    }
+
+    /* PRELOADER */
+    #preloader {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: #ffffff; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; z-index: 99999;
+      transition: opacity 0.4s ease-out, visibility 0.4s;
+    }
+    #preloader.fade-out { opacity: 0; visibility: hidden; }
+    .loader-content { position: relative; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+    .loader-ring {
+      width: 60px; height: 60px; border-radius: 50%;
+      border: 3px solid rgba(14,165,233,0.05); border-top: 3px solid var(--primary);
+      animation: rotate 1s linear infinite;
+    }
+    .loader-logo {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+    }
+    .loader-logo i { font-size: 1.2rem; color: var(--primary); animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+  </style>
+</head>
+<body>
+
+<!-- Premium Preloader -->
+<div id="preloader">
+  <div class="loader-content">
+    <div class="loader-ring"></div>
+    <div class="loader-logo"><i class="ri-heart-pulse-fill"></i></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <a href="index.html" class="t-logo">
+    <img src="assets/img/logo.webp" alt="STACKLY">
+    <span class="t-logo-text">STACKLY</span>
+  </a>
+  <div class="t-divider"></div>
+  <a href="javascript:history.back()" class="t-icon" title="Go Back"><i class="ri-arrow-left-line"></i></a>
+  <div class="t-right">
+    <div class="t-icon"><i class="ri-notification-3-line"></i><div class="t-notif"></div></div>
+    <div class="t-icon"><i class="ri-message-3-line"></i></div>
+    <div class="t-user"><div class="t-av">RK</div><span class="t-username">Rajesh K.</span></div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+      <div class="wb-icon"><i class="ri-heart-pulse-fill"></i></div>
+      <div class="wb-text">
+        <h2>Good Morning, Rajesh! 👋</h2>
+        <p>Your health is looking great. You're on track with your wellness goals this week.</p>
+      </div>
+      <div class="wb-right">
+        <div class="wb-next">Next appointment</div>
+        <div class="wb-appt">Dr. Sarah Jenkins · Apr 10</div>
+        <a href="#" class="wb-btn"><i class="ri-video-line"></i> Join Teleconsult</a>
+      </div>
+    </div>
+
+    <!-- HEALTH STATS -->
+    <div class="hs">
+      <div class="hsc">
+        <div class="hsc-icon ic-red"><i class="ri-heart-pulse-line"></i></div>
+        <div><div class="hsc-val">72</div><div class="hsc-lbl">Heart Rate</div><div class="hsc-sub">bpm · Normal</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-icon ic-blue"><i class="ri-drop-line"></i></div>
+        <div><div class="hsc-val">118/76</div><div class="hsc-lbl">Blood Pressure</div><div class="hsc-sub">mmHg · Normal</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-icon ic-amber"><i class="ri-scales-3-line"></i></div>
+        <div><div class="hsc-val">74.2</div><div class="hsc-lbl">Weight</div><div class="hsc-sub">kg · BMI 22.8</div></div>
+      </div>
+      <div class="hsc">
+        <div class="hsc-icon ic-teal"><i class="ri-lungs-line"></i></div>
+        <div><div class="hsc-val">98%</div><div class="hsc-lbl">SpO₂</div><div class="hsc-sub">Oxygen · Excellent</div></div>
+      </div>
+    </div>
+
+    <!-- APPOINTMENTS + NOTIFICATIONS -->
+    <div class="g21">
+      <!-- Appointments -->
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-blue"><i class="ri-calendar-line"></i></div><div><div class="ct">Upcoming Appointments</div><div class="cs">3 scheduled</div></div></div>
+          <a href="#" class="ca">Book New →</a>
+        </div>
+        <div class="apt-item">
+          <div class="apt-date"><div class="apt-day">10</div><div class="apt-mon">Apr</div></div>
+          <div class="apt-info">
+            <div class="apt-doc">Dr. Sarah Jenkins</div>
+            <div class="apt-spec">Cardiology · Follow-up</div>
+            <div class="apt-time"><i class="ri-time-line"></i> 10:00 AM · 30 min</div>
+          </div>
+          <div class="apt-right">
+            <span class="apt-type ap-tele">Tele</span>
+            <div style="margin-top:4px"><span style="font-size:0.7rem;color:var(--green);font-weight:600">Confirmed</span></div>
+            <button class="apt-btn">Join Call</button>
+          </div>
+        </div>
+        <div class="apt-item">
+          <div class="apt-date"><div class="apt-day">15</div><div class="apt-mon">Apr</div></div>
+          <div class="apt-info">
+            <div class="apt-doc">Dr. Michael Chen</div>
+            <div class="apt-spec">Neurology · Consultation</div>
+            <div class="apt-time"><i class="ri-time-line"></i> 11:30 AM · 45 min</div>
+          </div>
+          <div class="apt-right">
+            <span class="apt-type ap-visit">Visit</span>
+            <div style="margin-top:4px"><span style="font-size:0.7rem;color:var(--amber);font-weight:600">Pending</span></div>
+            <button class="apt-btn outline">Reschedule</button>
+          </div>
+        </div>
+        <div class="apt-item">
+          <div class="apt-date"><div class="apt-day">22</div><div class="apt-mon">Apr</div></div>
+          <div class="apt-info">
+            <div class="apt-doc">Lab Diagnostics</div>
+            <div class="apt-spec">Blood Panel · Full Checkup</div>
+            <div class="apt-time"><i class="ri-time-line"></i> 08:00 AM · Fasting required</div>
+          </div>
+          <div class="apt-right">
+            <span class="apt-type ap-visit" style="background:rgba(245,158,11,0.1);color:var(--amber)">Lab</span>
+            <div style="margin-top:4px"><span style="font-size:0.7rem;color:var(--primary);font-weight:600">Booked</span></div>
+            <button class="apt-btn outline">Directions</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-blue"><i class="ri-notification-3-line"></i></div><div><div class="ct">Notifications</div></div></div>
+          <a href="#" class="ca">Mark all read</a>
+        </div>
+        <div class="ni unread">
+          <div class="nd ic-blue"><i class="ri-calendar-check-line"></i></div>
+          <div><div class="nt"><strong>Appointment reminder</strong> — Dr. Jenkins tomorrow at 10 AM</div><div class="ntm">2 min ago</div></div>
+          <div class="n-dot"></div>
+        </div>
+        <div class="ni unread">
+          <div class="nd ic-green"><i class="ri-file-text-line"></i></div>
+          <div><div class="nt"><strong>Lab report ready</strong> — CBC results uploaded</div><div class="ntm">1 hr ago</div></div>
+          <div class="n-dot"></div>
+        </div>
+        <div class="ni unread">
+          <div class="nd ic-amber"><i class="ri-capsule-line"></i></div>
+          <div><div class="nt"><strong>Medication reminder</strong> — Metformin 8:00 PM dose</div><div class="ntm">3 hrs ago</div></div>
+          <div class="n-dot"></div>
+        </div>
+        <div class="ni unread">
+          <div class="nd ic-teal"><i class="ri-heart-pulse-line"></i></div>
+          <div><div class="nt"><strong>Health tip</strong> — Stay hydrated, aim 8 glasses today</div><div class="ntm">Today 7:00 AM</div></div>
+          <div class="n-dot"></div>
+        </div>
+        <div class="ni">
+          <div class="nd ic-purple"><i class="ri-money-dollar-circle-line"></i></div>
+          <div><div class="nt"><strong>Invoice #1042 paid</strong> — ₹3,500 processed</div><div class="ntm">Yesterday</div></div>
+        </div>
+        <div class="ni">
+          <div class="nd ic-blue"><i class="ri-vidicon-line"></i></div>
+          <div><div class="nt"><strong>Teleconsult completed</strong> — Dr. Sarah Jenkins session ended</div><div class="ntm">3 days ago</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VITALS + PRESCRIPTIONS + TABS -->
+    <div class="g2">
+      <!-- Vitals -->
+      <div class="card">
+        <div class="ch">
+          <div class="ch-l"><div class="ch-ico ic-red"><i class="ri-heart-pulse-line"></i></div><div><div class="ct">Health Vitals</div><div class="cs">Last updated today</div></div></div>
+          <a href="#" class="ca">Log Vitals →</a>
+        </div>
+        <div class="vital-grid">
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">Heart Rate</span><span class="vital-status vs-normal">Normal</span></div>
+            <div class="vital-val">72 <span class="vital-unit">bpm</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:65%;background:var(--red)"></div></div>
+          </div>
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">Blood Pressure</span><span class="vital-status vs-normal">Normal</span></div>
+            <div class="vital-val">118/76 <span class="vital-unit">mmHg</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:70%;background:var(--primary)"></div></div>
+          </div>
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">Blood Sugar</span><span class="vital-status vs-attention">Watch</span></div>
+            <div class="vital-val">108 <span class="vital-unit">mg/dL</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:58%;background:var(--amber)"></div></div>
+          </div>
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">SpO₂</span><span class="vital-status vs-normal">Excellent</span></div>
+            <div class="vital-val">98 <span class="vital-unit">%</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:95%;background:var(--teal)"></div></div>
+          </div>
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">Temperature</span><span class="vital-status vs-normal">Normal</span></div>
+            <div class="vital-val">36.8 <span class="vital-unit">°C</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:72%;background:var(--green)"></div></div>
+          </div>
+          <div class="vital-card">
+            <div class="vital-top"><span class="vital-label">Weight</span><span class="vital-status vs-normal">Healthy</span></div>
+            <div class="vital-val">74.2 <span class="vital-unit">kg</span></div>
+            <div class="vital-bar"><div class="vital-fill" style="width:60%;background:var(--purple)"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile + Prescriptions Tabs -->
+      <div class="card">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'prescriptions')">Prescriptions</button>
+          <button class="tab-btn" onclick="switchTab(this,'profile')">My Profile</button>
+          <button class="tab-btn" onclick="switchTab(this,'insurance')">Insurance</button>
+        </div>
+
+        <div class="tab-panel active" id="tab-prescriptions">
+          <!-- Plan Banner -->
+          <div class="plan-banner">
+            <div class="plan-name"><i class="ri-shield-check-fill"></i> Premium Care Plan</div>
+            <div class="plan-desc">Unlimited teleconsultations + home delivery + priority labs</div>
+            <div class="plan-expires">Expires: December 31, 2026 · 68% used</div>
+            <div class="plan-progress"><div class="plan-progress-fill"></div></div>
+          </div>
+          <div class="rx-item">
+            <div class="rx-icon"><i class="ri-capsule-line"></i></div>
+            <div><div class="rx-name">Metformin 500mg</div><div class="rx-dose">1 tablet · Twice daily · After meals</div></div>
+            <div class="rx-right"><div class="rx-refill">Refill: 12 days</div><button class="rx-btn">Refill Now</button></div>
+          </div>
+          <div class="rx-item">
+            <div class="rx-icon" style="background:rgba(20,184,166,0.1);color:var(--teal)"><i class="ri-heart-line"></i></div>
+            <div><div class="rx-name">Atorvastatin 20mg</div><div class="rx-dose">1 tablet · Once daily · At night</div></div>
+            <div class="rx-right"><div class="rx-refill">Refill: 24 days</div><button class="rx-btn">Refill Now</button></div>
+          </div>
+          <div class="rx-item">
+            <div class="rx-icon" style="background:rgba(245,158,11,0.1);color:var(--amber)"><i class="ri-sun-line"></i></div>
+            <div><div class="rx-name">Vitamin D3 1000IU</div><div class="rx-dose">1 capsule · Once daily · Morning</div></div>
+            <div class="rx-right"><div class="rx-refill">Refill: 30 days</div><button class="rx-btn">Refill Now</button></div>
+          </div>
+          <div style="padding:14px 18px"><a href="#" style="display:block;text-align:center;font-size:0.8rem;color:var(--primary);font-weight:600;text-decoration:none;padding:10px;border:1px dashed var(--border);border-radius:9px;">+ Request New Prescription</a></div>
+        </div>
+
+        <div class="tab-panel" id="tab-profile">
+          <div class="pf">
+            <div class="fr">
+              <div class="fg"><label>First Name</label><input type="text" value="Rajesh"></div>
+              <div class="fg"><label>Last Name</label><input type="text" value="Kumar"></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>Email</label><input type="email" value="rajesh@email.com"></div>
+              <div class="fg"><label>Phone</label><input type="tel" value="+91 98765 43210"></div>
+            </div>
+            <div class="fr">
+              <div class="fg"><label>Date of Birth</label><input type="date" value="1991-03-15"></div>
+              <div class="fg"><label>Blood Group</label><select><option>O+</option><option>A+</option><option>B+</option><option>AB+</option></select></div>
+            </div>
+            <div class="fg" style="margin-bottom:14px"><label>Address</label><input type="text" value="Salem, Tamil Nadu, India"></div>
+            <div>
+              <button class="btn-save">Save Changes</button>
+              <button class="btn-secondary">Change Password</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-insurance">
+          <div class="pf">
+            <div style="background:var(--bg);border:1px solid var(--border-light);border-radius:12px;padding:16px;margin-bottom:14px">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px">
+                <div style="width:40px;height:40px;border-radius:10px;background:var(--primary-glow);display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.1rem"><i class="ri-shield-cross-line"></i></div>
+                <div><div style="font-weight:600;font-size:0.9rem">BlueCross Insurance</div><div style="font-size:0.71rem;color:var(--text-dim)">Policy #BC-2026-88421</div></div>
+                <div style="margin-left:auto"><span style="background:rgba(34,197,94,0.1);color:var(--green);font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:4px">Active</span></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                <div style="font-size:0.72rem;color:var(--text-mid)">Coverage<br><strong style="color:var(--text)">₹5,00,000</strong></div>
+                <div style="font-size:0.72rem;color:var(--text-mid)">Used this year<br><strong style="color:var(--text)">₹42,000</strong></div>
+                <div style="font-size:0.72rem;color:var(--text-mid)">Renewal Date<br><strong style="color:var(--text)">Jan 1, 2027</strong></div>
+                <div style="font-size:0.72rem;color:var(--text-mid)">Type<br><strong style="color:var(--text)">Comprehensive</strong></div>
+              </div>
+            </div>
+            <div style="height:7px;background:var(--bg);border-radius:4px;overflow:hidden;margin-bottom:6px"><div style="height:100%;width:8.4%;background:linear-gradient(90deg,var(--primary),var(--teal));border-radius:4px"></div></div>
+            <div style="font-size:0.72rem;color:var(--text-dim)">₹42,000 of ₹5,00,000 used (8.4%)</div>
+            <div style="margin-top:14px"><button class="btn-save" style="font-family:var(--font-body)">View Claims</button><button class="btn-secondary" style="font-family:var(--font-body)">Add Policy</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Preloader Logic
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => { preloader.style.display = 'none'; }, 400);
+      }, 600);
+    }
+  });
+
+  function switchTab(btn, id) {
+    btn.closest('.card').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    btn.closest('.card').querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+  }
+
+  // Personalization Script
+  document.addEventListener('DOMContentLoaded', () => {
+    const userName = localStorage.getItem('userName');
+    
+    if (userName) {
+      // Split email or handle simple name
+      const nameParts = userName.split('@')[0];
+      const displayName = nameParts.charAt(0).toUpperCase() + nameParts.slice(1);
+      
+      const elUserNameTxt = document.querySelector('.t-username');
+      const elUserAvatar = document.querySelector('.t-av');
+      const elGreeting = document.querySelector('.welcome-banner h2');
+
+      if (elUserNameTxt) elUserNameTxt.textContent = displayName;
+      if (elUserAvatar) elUserAvatar.textContent = displayName.charAt(0).toUpperCase();
+      if (elGreeting) elGreeting.textContent = `Good Morning, ${displayName}! 👋`;
+    }
+  });
+</script>
+</body>
+</html>

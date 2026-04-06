@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STACKLY Health Blog - Expert medical insights, wellness tips, and the latest in digital healthcare.">
+    <title>Health Blog | STACKLY Medical Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Premium Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-logo"><i class="ri-heart-pulse-fill"></i></div>
+            <div class="loader-text">STACKLY</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.webp" alt="STACKLY Logo"> STACKLY
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="blog.html" class="active">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="ri-menu-4-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="blog-hero">
+        <div class="blog-hero-bg">
+            <img src="assets/img/h1.webp" alt="STACKLY Blog">
+            <div class="blog-hero-overlay"></div>
+        </div>
+        <div class="container blog-hero-content" data-aos="fade-up">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="ri-arrow-right-s-line"></i>
+                <span>Health Blog</span>
+            </div>
+            <h1>Health Insights & <span class="text-gradient-white">Medical News</span></h1>
+            <p>Expert-written articles on wellness, telemedicine, diagnostics, and the future of healthcare — curated for patients and professionals alike.</p>
+        </div>
+    </section>
+
+    <!-- ===================== CATEGORY FILTER TABS ===================== -->
+    <section class="blog-filter-section">
+        <div class="container">
+            <div class="blog-filter-tabs" data-aos="fade-up">
+                <button class="filter-tab active" data-filter="all">All Articles</button>
+                <button class="filter-tab" data-filter="wellness">Wellness</button>
+                <button class="filter-tab" data-filter="telemedicine">Telemedicine</button>
+                <button class="filter-tab" data-filter="nutrition">Nutrition</button>
+                <button class="filter-tab" data-filter="mental-health">Mental Health</button>
+                <button class="filter-tab" data-filter="technology">Health Tech</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURED ARTICLE ===================== -->
+    <section class="blog-featured-section">
+        <div class="container">
+            <div class="blog-featured-card" data-aos="fade-up">
+                <div class="blog-featured-img">
+                    <img src="assets/img/h1.webp" alt="Featured Article">
+                    <span class="featured-badge"><i class="ri-fire-line"></i> Featured</span>
+                    <span class="blog-category-tag wellness">Wellness</span>
+                </div>
+                <div class="blog-featured-content">
+                    <div class="blog-meta">
+                        <span><i class="ri-calendar-line"></i> April 2, 2026</span>
+                        <span><i class="ri-time-line"></i> 8 min read</span>
+                        <span><i class="ri-user-line"></i> Dr. Sarah Jenkins</span>
+                    </div>
+                    <h2>The Complete Guide to Building a Preventive Healthcare Routine in 2026</h2>
+                    <p>Prevention is no longer just about annual check-ups. Modern medicine gives us powerful, personalised tools — from wearables to AI health tracking — that allow us to identify risks before they become illnesses. In this comprehensive guide, our Chief Cardiologist walks you through the steps to build a routine that could add years to your life.</p>
+                    <div class="featured-tags">
+                        <span class="blog-tag">Preventive Care</span>
+                        <span class="blog-tag">AI Health</span>
+                        <span class="blog-tag">Lifestyle</span>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Read Full Article <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MAIN BLOG GRID + SIDEBAR ===================== -->
+    <section class="blog-main-section">
+        <div class="container">
+            <div class="blog-layout">
+
+                <!-- Articles Grid -->
+                <div class="blog-articles">
+
+                    <div class="blog-section-header" data-aos="fade-up">
+                        <h3>Latest Articles <span class="blog-count">(12)</span></h3>
+                    </div>
+
+                    <div class="blog-articles-grid">
+
+                        <!-- Card 1 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="100" data-category="mental-health">
+                            <div class="blog-img">
+                                <img src="assets/img/e2.webp" alt="Mental Health">
+                                <div class="blog-date">Mar 28, 2026</div>
+                                <span class="blog-category-tag mental-health">Mental Health</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>5 Evidence-Based Techniques to Manage Anxiety in Daily Life</h3>
+                                <p>Clinical psychologist Dr. Emily Roberts shares the science-backed strategies most recommended by therapists for managing chronic anxiety without medication.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d3.webp" alt="Dr. Emily Roberts">
+                                        <span>Dr. Emily Roberts</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="200" data-category="telemedicine">
+                            <div class="blog-img">
+                                <img src="assets/img/service1.webp" alt="Telemedicine">
+                                <div class="blog-date">Mar 24, 2026</div>
+                                <span class="blog-category-tag telemedicine">Telemedicine</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>How Virtual Doctor Visits Are Redefining Rural Healthcare Access</h3>
+                                <p>Over 60 million Americans live in medically underserved areas. We explore how telemedicine is bridging this gap and transforming outcomes in rural communities.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d2.webp" alt="Dr. Michael Chen">
+                                        <span>Dr. Michael Chen</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="300" data-category="nutrition">
+                            <div class="blog-img">
+                                <img src="assets/img/h1.webp" alt="Nutrition">
+                                <div class="blog-date">Mar 20, 2026</div>
+                                <span class="blog-category-tag nutrition">Nutrition</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>The Anti-Inflammatory Diet: What the Latest Research Actually Says</h3>
+                                <p>Not all anti-inflammatory diets are created equal. We review 2025's most rigorous clinical trials to separate fact from marketing hype in the nutrition world.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d1.webp" alt="Dr. Sarah Jenkins">
+                                        <span>Dr. Sarah Jenkins</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="100" data-category="technology">
+                            <div class="blog-img">
+                                <img src="assets/img/h2.webp" alt="Health Tech">
+                                <div class="blog-date">Mar 15, 2026</div>
+                                <span class="blog-category-tag technology">Health Tech</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>AI in Medical Diagnostics: A Radiologist's Honest Assessment</h3>
+                                <p>Artificial intelligence is transforming how we read scans and detect disease. Our Head of Diagnostics offers an insider's perspective on what AI can — and cannot — do.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d2.webp" alt="Dr. Michael Chen">
+                                        <span>Dr. Michael Chen</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="200" data-category="wellness">
+                            <div class="blog-img">
+                                <img src="assets/img/e1.webp" alt="Cardiac Health">
+                                <div class="blog-date">Mar 10, 2026</div>
+                                <span class="blog-category-tag wellness">Wellness</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>Heart Health After 40: The 7 Tests Every Adult Should Get</h3>
+                                <p>Cardiovascular disease is the leading cause of death globally, yet most cases are preventable. Here are the screenings our cardiologists recommend for adults over 40.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d1.webp" alt="Dr. Sarah Jenkins">
+                                        <span>Dr. Sarah Jenkins</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="blog-article-card" data-aos="fade-up" data-aos-delay="300" data-category="mental-health">
+                            <div class="blog-img">
+                                <img src="assets/img/f4.webp" alt="Sleep Health">
+                                <div class="blog-date">Mar 5, 2026</div>
+                                <span class="blog-category-tag mental-health">Mental Health</span>
+                            </div>
+                            <div class="blog-content">
+                                <h3>Why Sleep Is the Most Underrated Pillar of Mental Wellness</h3>
+                                <p>Poor sleep is strongly linked to depression, anxiety, and cognitive decline. We explore the neuroscience of sleep and practical, clinically proven strategies to sleep better.</p>
+                                <div class="article-footer">
+                                    <div class="article-author">
+                                        <img src="assets/img/d3.webp" alt="Dr. Emily Roberts">
+                                        <span>Dr. Emily Roberts</span>
+                                    </div>
+                                    <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div><!-- end articles grid -->
+
+                    <!-- Pagination -->
+                    <div class="blog-pagination" data-aos="fade-up">
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <span class="pagination-dots">...</span>
+                        <button class="pagination-btn">8</button>
+                        <button class="pagination-next">Next <i class="ri-arrow-right-line"></i></button>
+                    </div>
+
+                </div><!-- end articles -->
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar" data-aos="fade-left">
+
+                    <!-- Search -->
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">Search Articles</h4>
+                        <div class="sidebar-search">
+                            <input type="text" placeholder="Search health topics...">
+                            <button aria-label="Search"><i class="ri-search-line"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">Categories</h4>
+                        <ul class="sidebar-categories">
+                            <li><a href="#">Wellness <span>14</span></a></li>
+                            <li><a href="#">Telemedicine <span>9</span></a></li>
+                            <li><a href="#">Nutrition <span>11</span></a></li>
+                            <li><a href="#">Mental Health <span>8</span></a></li>
+                            <li><a href="#">Health Technology <span>12</span></a></li>
+                            <li><a href="#">Pediatric Care <span>6</span></a></li>
+                            <li><a href="#">Emergency Medicine <span>5</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">Popular Articles</h4>
+                        <div class="popular-posts">
+                            <a href="404.html" class="popular-post">
+                                <img src="assets/img/h2.webp" alt="Post">
+                                <div>
+                                    <h5>AI in Medical Diagnostics</h5>
+                                    <span><i class="ri-calendar-line"></i> Mar 15, 2026</span>
+                                </div>
+                            </a>
+                            <a href="404.html" class="popular-post">
+                                <img src="assets/img/e1.webp" alt="Post">
+                                <div>
+                                    <h5>Heart Health After 40</h5>
+                                    <span><i class="ri-calendar-line"></i> Mar 10, 2026</span>
+                                </div>
+                            </a>
+                            <a href="404.html" class="popular-post">
+                                <img src="assets/img/e2.webp" alt="Post">
+                                <div>
+                                    <h5>Managing Anxiety Daily</h5>
+                                    <span><i class="ri-calendar-line"></i> Mar 28, 2026</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">Popular Tags</h4>
+                        <div class="sidebar-tags">
+                            <a href="#" class="blog-tag">Preventive Care</a>
+                            <a href="#" class="blog-tag">Heart Health</a>
+                            <a href="#" class="blog-tag">Nutrition</a>
+                            <a href="#" class="blog-tag">AI Diagnostics</a>
+                            <a href="#" class="blog-tag">Sleep</a>
+                            <a href="#" class="blog-tag">Anxiety</a>
+                            <a href="#" class="blog-tag">Telemedicine</a>
+                            <a href="#" class="blog-tag">Pediatrics</a>
+                            <a href="#" class="blog-tag">Fitness</a>
+                            <a href="#" class="blog-tag">Digital Health</a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="sidebar-widget sidebar-newsletter">
+                        <div class="sidebar-newsletter-inner">
+                            <i class="ri-mail-check-line"></i>
+                            <h4>Weekly Health Digest</h4>
+                            <p>Get the latest clinical insights delivered straight to your inbox every Monday.</p>
+                            <input type="email" placeholder="Enter your email">
+                            <button class="btn btn-primary w-full">Subscribe Free</button>
+                        </div>
+                    </div>
+
+                </aside>
+
+            </div><!-- end blog-layout -->
+        </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2>Have a Health Question for Our Experts?</h2>
+                    <p>Book a virtual consultation and get personalised medical advice from our board-certified specialists.</p>
+                </div>
+                <div class="cta-action" style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <a href="404.html" class="btn btn-white btn-lg">Book Consultation</a>
+                    <a href="services.html" class="btn btn-lg" style="background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.5);">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/img/logo.webp" alt="STACKLY Logo"> STACKLY
+                </a>
+                <p>Delivering premium medical solutions and redefining healthcare through technology, empathy, and expertise.</p>
+                <div class="social-links">
+                    <a href="404.html"><i class="ri-facebook-fill"></i></a>
+                    <a href="404.html"><i class="ri-twitter-x-line"></i></a>
+                    <a href="404.html"><i class="ri-instagram-line"></i></a>
+                    <a href="404.html"><i class="ri-linkedin-fill"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#teleconsultation">Teleconsultation</a></li>
+                    <li><a href="services.html#pharmacy">Digital Pharmacy</a></li>
+                    <li><a href="services.html#diagnostics">Diagnostics & Labs</a></li>
+                    <li><a href="services.html#pediatrics">Pediatric Care</a></li>
+                    <li><a href="services.html#emergency">Emergency Care</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <p><i class="ri-map-pin-line"></i> Salem, Tamilnadu, India</p>
+                <p><i class="ri-phone-line"></i> 9876543210</p>
+                <p><i class="ri-mail-line"></i> contact@stackly.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 STACKLY Medical Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Blog Category Filter
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const articleCards = document.querySelectorAll('.blog-article-card');
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.getAttribute('data-filter');
+                articleCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        card.style.flexDirection = 'column';
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

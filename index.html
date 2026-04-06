@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STACKLY - Premium Medical Solutions & Telemedicine platform.">
+    <title>STACKLY | Premium Medical Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- RemixIcon for Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Premium Preloader -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99999;">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-logo">
+                <i class="ri-heart-pulse-fill"></i>
+            </div>
+            <div class="loader-text">STACKLY</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="assets/img/logo.webp" alt="LOGO"> STACKLY
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="ri-menu-4-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                <div class="badge">
+                    <span class="badge-icon"><i class="ri-heart-pulse-fill"></i></span>
+                    <span class="badge-text">#1 Trusted Healthcare Partner</span>
+                </div>
+                <h1 class="hero-title">Modern Healthcare <br><span class="text-gradient">Solutions</span> For You</h1>
+                <p class="hero-desc">Experience premium medial care with our state-of-the-art facilities, expert professionals, and advanced telemedicine platform designed to prioritize your well-being.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary btn-lg">Explore Services <i class="ri-arrow-right-line"></i></a>
+                    <a href="tel:+1234567890" class="btn btn-outline btn-lg"><i class="ri-phone-line"></i> Emergency Call</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="avatars">
+                            <img src="assets/img/p1.webp" alt="User">
+                            <img src="assets/img/p2.webp" alt="User">
+                            <img src="assets/img/p3.webp" alt="User">
+                            <div class="avatar-more">+2k</div>
+                        </div>
+                        <p>Happy Patients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <img src="assets/img/Hero1.webp" alt="STACKLY Medical Professional" class="hero-image floating">
+                <div class="floating-card glass-card card-1" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card-icon"><i class="ri-shield-check-fill"></i></div>
+                    <div class="card-info">
+                        <strong>Verified</strong>
+                        <span>Top Specialists</span>
+                    </div>
+                </div>
+                <div class="floating-card glass-card card-2" data-aos="zoom-in" data-aos-delay="800">
+                    <div class="card-icon blue"><i class="ri-vidicon-line"></i></div>
+                    <div class="card-info">
+                        <strong>24/7</strong>
+                        <span>Teleconsultation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+    </section>
+
+    <!-- Partners / Insurance Section -->
+    <section class="partners">
+        <div class="container">
+            <div class="partners-wrapper" data-aos="fade-up">
+                <span>Trusted by top insurance providers:</span>
+                <div class="partner-logos">
+                    <div class="partner-logo"><i class="ri-heart-pulse-fill"></i> HealthFirst</div>
+                    <div class="partner-logo"><i class="ri-shield-cross-fill"></i> BlueCross</div>
+                    <div class="partner-logo"><i class="ri-medicine-bottle-fill"></i> MediCare</div>
+                    <div class="partner-logo"><i class="ri-capsule-fill"></i> PharmaCo</div>
+                    <div class="partner-logo"><i class="ri-microscope-fill"></i> BioLab</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Our Services</h4>
+                <h2 class="title">Comprehensive <span class="text-gradient">Care Areas</span></h2>
+                <p class="desc">Discover our wide range of world-class medical services tailored for optimal recovery and holistic health management.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-img">
+                        <img src="assets/img/service1.webp" alt="Online Consultation">
+                        <div class="service-icon"><i class="ri-stethoscope-line"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Online Consultation</h3>
+                        <p>Connect with top specialists from the comfort of your home via our encrypted telemedicine portal.</p>
+                        <a href="404.html" class="service-link">Learn More <i class="ri-arrow-right-s-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-img">
+                        <img src="assets/img/service2.webp" alt="Digital Pharmacy">
+                        <div class="service-icon"><i class="ri-capsule-line"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital Pharmacy</h3>
+                        <p>Order prescriptions online with fast, secure door-to-door delivery directly from our pharmacy.</p>
+                        <a href="404.html" class="service-link">Learn More <i class="ri-arrow-right-s-line"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-img">
+                        <img src="assets/img/service3.webp" alt="Advanced Diagnostics">
+                        <div class="service-icon"><i class="ri-microscope-line"></i></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Advanced Diagnostics</h3>
+                        <p>Accurate and fast results using state-of-the-art laboratory equipment and experienced pathologists.</p>
+                        <a href="404.html" class="service-link">Learn More <i class="ri-arrow-right-s-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-container">
+            <div class="about-image-wrapper" data-aos="fade-right">
+                <img src="assets/img/Pioneering The Future.webp" alt="About STACKLY facility" class="about-image">
+                <div class="experience-badge glass-card floating">
+                    <h2>15+</h2>
+                    <span>Years of<br>Excellence</span>
+                </div>
+            </div>
+            <div class="about-content" data-aos="fade-left">
+                <h4 class="subtitle">About STACKLY</h4>
+                <h2 class="title">Pioneering The Future Of <span class="text-gradient">Medical Science</span></h2>
+                <p class="desc">At STACKLY, we merge cutting-edge technology with compassionate care. Our dedicated team of medical professionals is committed to delivering exceptional patient experiences through continuous innovation in healthcare.</p>
+                
+                <ul class="feature-list">
+                    <li><i class="ri-checkbox-circle-fill"></i> Access to World-Class Specialists</li>
+                    <li><i class="ri-checkbox-circle-fill"></i> State-of-the-Art Medical Technology</li>
+                    <li><i class="ri-checkbox-circle-fill"></i> Patient-Centric Personalized Care Plans</li>
+                    <li><i class="ri-checkbox-circle-fill"></i> 24/7 Emergency and Trauma Ready</li>
+                </ul>
+                
+                <a href="404.html" class="btn btn-primary mt-4">Read Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container stats-container">
+            <div class="stat-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-icon"><i class="ri-user-smile-line"></i></div>
+                <h3 class="counter" data-target="50000">0</h3>
+                <p>Happy Patients</p>
+            </div>
+            <div class="stat-box" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-icon"><i class="ri-team-line"></i></div>
+                <h3 class="counter" data-target="150">0</h3>
+                <p>Expert Doctors</p>
+            </div>
+            <div class="stat-box" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-icon"><i class="ri-hospital-line"></i></div>
+                <h3 class="counter" data-target="25">0</h3>
+                <p>Clinic Branches</p>
+            </div>
+            <div class="stat-box" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-icon"><i class="ri-award-line"></i></div>
+                <h3 class="counter" data-target="40">0</h3>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Our Facilities</h4>
+                <h2 class="title">Modern & <span class="text-gradient">Premium Care Environments</span></h2>
+                <p class="desc">Take a virtual tour of our state-of-the-art medical equipment and clinical spaces.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/img/f1.webp" alt="Operating Room">
+                    <div class="gallery-overlay">
+                        <h3>Main Operation Hub</h3>
+                        <p>Fully equipped for complex surgical procedures.</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/img/f2.webp" alt="Consultation Room">
+                    <div class="gallery-overlay">
+                        <h3>Consultation Hub</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/img/f3.webp" alt="Diagnostics">
+                    <div class="gallery-overlay">
+                        <h3>Diagnostic Lab</h3>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/img/f4.webp" alt="Lobby">
+                    <div class="gallery-overlay">
+                        <h3>Premium Lobby</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process / How it Works Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">How It Works</h4>
+                <h2 class="title">3 Easy Steps to <span class="text-gradient">Get Care</span></h2>
+                <p class="desc">We've simplified the process of getting premium healthcare. Follow these simple steps to start your journey to better health.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="ri-search-eye-line"></i></div>
+                    <h3>Find a Specialist</h3>
+                    <p>Browse our directory of top-rated doctors and choose the one that fits your needs.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="ri-calendar-check-line"></i></div>
+                    <h3>Book Appointment</h3>
+                    <p>Select a convenient time for an online consultation or an in-person clinic visit.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="ri-heart-add-line"></i></div>
+                    <h3>Get Treatment</h3>
+                    <p>Receive personalized care, e-prescriptions, and continuous follow-ups directly from our platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialists Section -->
+    <section class="specialists" id="doctors">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Our Top Doctors</h4>
+                <h2 class="title">Meet Our <span class="text-gradient">Specialists</span></h2>
+                <p class="desc">Our team of experienced medical professionals are dedicated to providing you with the highest standard of care.</p>
+            </div>
+            <div class="specialists-grid">
+                <div class="specialist-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialist-img">
+                        <img src="assets/img/d1.webp" alt="Dr. Sarah Jenkins">
+                    </div>
+                    <div class="specialist-info">
+                        <h3>Dr. Sarah Jenkins</h3>
+                        <span>Cardiologist</span>
+                        <div class="specialist-rating">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                            <small>(120+ Reviews)</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="specialist-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialist-img">
+                        <img src="assets/img/d2.webp" alt="Dr. Michael Chen">
+                    </div>
+                    <div class="specialist-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <span>Neurologist</span>
+                        <div class="specialist-rating">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            <small>(85+ Reviews)</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="specialist-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="specialist-img">
+                        <img src="assets/img/d3.webp" alt="Dr. Emily Roberts">
+                    </div>
+                    <div class="specialist-info">
+                        <h3>Dr. Emily Roberts</h3>
+                        <span>Pediatrician</span>
+                        <div class="specialist-rating">
+                            <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i>
+                            <small>(200+ Reviews)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="#" class="btn btn-outline btn-lg">View All Doctors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Testimonials</h4>
+                <h2 class="title">What Our <span class="text-gradient">Patients Say</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+                    <p class="testimonial-text">"The telemedicine platform is incredibly easy to use. I got a consultation with Dr. Jenkins within minutes, and my prescription was delivered the same day. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <img src="assets/img/p1.webp" alt="Amanda L.">
+                        <div>
+                            <h4>Amanda L.</h4>
+                            <span>Verified Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card" data-aos="fade-left" data-aos-delay="200">
+                    <div class="quote-icon"><i class="ri-double-quotes-l"></i></div>
+                    <p class="testimonial-text">"STACKLY's diagnostic center is top-notch. Clean, fast, and professional. The seamless integration of my test results into the app makes tracking my health stress-free."</p>
+                    <div class="testimonial-author">
+                        <img src="assets/img/p2.webp" alt="David M.">
+                        <div>
+                            <h4>David M.</h4>
+                            <span>Verified Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="success-stories" id="stories">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Success Stories</h4>
+                <h2 class="title">Real Stories, <span class="text-gradient">Real Results</span></h2>
+                <p class="desc">Witness the transformative journeys of our patients who regained their health through STACKLY's specialized care.</p>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="story-img">
+                        <img src="assets/img/e1.webp" alt="Recovery Story">
+                        <div class="story-tag">Cardiac Recovery</div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Back on the Field in 3 Months</h3>
+                        <p>"After my cardiac event, I thought my active life was over. STACKLY's rehab team fixed that."</p>
+                        <span class="patient-name">- Marcus R., Professional Athlete</span>
+                    </div>
+                </div>
+                <div class="story-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="story-img">
+                        <img src="assets/img/e2.webp" alt="Mental Wellness">
+                        <div class="story-tag">Mental Health</div>
+                    </div>
+                    <div class="story-content">
+                        <h3>Finding Balance Again</h3>
+                        <p>"The personalized therapy sessions helped me navigate through my darkest times with constant support."</p>
+                        <span class="patient-name">- Elena G., Entrepreneur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Packages Section -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Our Packages</h4>
+                <h2 class="title">Exclusive <span class="text-gradient">Health Plans</span></h2>
+                <p class="desc">Choose from our curated healthcare packages designed for different needs and age groups.</p>
+            </div>
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-header">
+                        <h3>Basic Checkup</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">99</span>
+                            <span class="period">/visit</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="ri-check-line"></i> Blood Pressure Check</li>
+                        <li><i class="ri-check-line"></i> Basic Blood Test</li>
+                        <li><i class="ri-check-line"></i> Physical Examination</li>
+                        <li class="disabled"><i class="ri-close-line"></i> Cardiac Screening</li>
+                        <li class="disabled"><i class="ri-close-line"></i> Nutritionist Consultation</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-outline">Choose Plan</a>
+                </div>
+                <!-- Package 2 -->
+                <div class="package-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Standard Wellness</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">199</span>
+                            <span class="period">/visit</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="ri-check-line"></i> Everything in Basic</li>
+                        <li><i class="ri-check-line"></i> Full Blood Panel</li>
+                        <li><i class="ri-check-line"></i> ECG Screening</li>
+                        <li><i class="ri-check-line"></i> 1x Online Consultation</li>
+                        <li class="disabled"><i class="ri-close-line"></i> Specialist Follow-up</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary">Choose Plan</a>
+                </div>
+                <!-- Package 3 -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="package-header">
+                        <h3>Premium Care</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">399</span>
+                            <span class="period">/visit</span>
+                        </div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="ri-check-line"></i> Everything in Standard</li>
+                        <li><i class="ri-check-line"></i> Cardiac Stress Test</li>
+                        <li><i class="ri-check-line"></i> Full Body MRI/CT</li>
+                        <li><i class="ri-check-line"></i> 3x Specialist Follow-up</li>
+                        <li><i class="ri-check-line"></i> Personal Dietitian</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-outline">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Common Questions</h4>
+                <h2 class="title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+            </div>
+            <div class="faq-container" data-aos="fade-up">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h3>How do I book an online consultation?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply click on the "Book Appointment" button, select your specialist, and choose "Online Consultation" as your visit type. You'll receive a secure link for your video call.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my medical data secure with STACKLY?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use enterprise-grade end-to-encryption and comply with all international health data protection regulations (HIPAA/GDPR) to ensure your privacy.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you accept international insurance?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we partner with major global insurance providers. You can upload your insurance details during the booking process to check for coverage eligibility.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I get emergency care at any of your centers?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our main hubs are equipped with 24/7 emergency departments. Smaller clinics provide urgent care during business hours. Please use the "Emergency Call" button for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Latest News</h4>
+                <h2 class="title">Health & <span class="text-gradient">Wellness Tips</span></h2>
+                <p class="desc">Stay informed with the latest medical insights and healthy living advice from our expert team.</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-img">
+                        <img src="assets/img/h1.webp" alt="Healthy Diet">
+                        <div class="blog-date">Mar 24, 2026</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>10 Tips for a Healthier Heart</h3>
+                        <p>Simple lifestyle changes that can significantly reduce your risk of cardiovascular diseases...</p>
+                        <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-img">
+                        <img src="assets/img/e2.webp" alt="Mental Health">
+                        <div class="blog-date">Mar 20, 2026</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Managing Stress in Modern Life</h3>
+                        <p>Practical mindfulness techniques to help you maintain mental balance in a busy world...</p>
+                        <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-img">
+                        <img src="assets/img/h2.webp" alt="Advanced Tech">
+                        <div class="blog-date">Mar 15, 2026</div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>The Role of AI in Diagnostics</h3>
+                        <p>How artificial intelligence is helping doctors detect diseases earlier and more accurately than ever before...</p>
+                        <a href="404.html" class="blog-link">Read More <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="404.html" class="btn btn-outline btn-lg">View All Articles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box glass-card" data-aos="zoom-in">
+                <div class="newsletter-content">
+                    <h2 class="title">Join Our Health <span class="text-gradient">Community</span></h2>
+                    <p>Subscribe to our newsletter for weekly health tips, medical news, and exclusive package offers.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container contact-container">
+            <div class="contact-info" data-aos="fade-right">
+                <h4 class="subtitle">Get In Touch</h4>
+                <h2 class="title">Have Questions? <span class="text-gradient">Contact Us</span></h2>
+                <p class="desc">Our team is available 24/7 to assist you with any medical inquiries or appointment bookings.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="icon"><i class="ri-map-pin-2-line"></i></div>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>Salem, Tamilnadu, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="icon"><i class="ri-phone-line"></i></div>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>9876543210</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="icon"><i class="ri-mail-line"></i></div>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>support@stackly.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form-wrapper glass-card" data-aos="fade-left">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="e.g. John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="e.g. john@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select required>
+                            <option value="">Select a subject</option>
+                            <option value="appointment">Appointment Booking</option>
+                            <option value="inquiry">General Inquiry</option>
+                            <option value="insurance">Insurance Question</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CT Banner -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box glass-card" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2>Ready to take the first step towards better health?</h2>
+                    <p>Book a consultation today and let our specialists craft a care plan just for you.</p>
+                </div>
+                <div class="cta-action">
+                    <a href="404.html" class="btn btn-white btn-lg">Book Appointment Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="#" class="logo footer-logo">
+                    <img src="assets/img/logo.webp" alt="LOGO"> STACKLY
+                </a>
+                <p>Delivering premium medical solutions and redefining healthcare through technology, empathy, and expertise.</p>
+                <div class="social-links">
+                    <a href="./404.html"><i class="ri-facebook-fill"></i></a>
+                    <a href="./404.html"><i class="ri-twitter-x-line"></i></a>
+                    <a href="./404.html"><i class="ri-instagram-line"></i></a>
+                    <a href="./404.html"><i class="ri-linkedin-fill"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="404.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="404.html">Teleconsultation</a></li>
+                    <li><a href="404.html">Digital Pharmacy</a></li>
+                    <li><a href="404.html">Diagnostics Center</a></li>
+                    <li><a href="404.html">Health Pedriatics</a></li>
+                    <li><a href="404.html">Emergency Care</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <p><i class="ri-map-pin-line"></i> Salem, Tamilnadu, India</p>
+                <p><i class="ri-phone-line"></i> 9876543210</p>
+                <p><i class="ri-mail-line"></i> contact@stackly.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 STACKLY Medical Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

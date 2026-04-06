@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | STACKLY</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            background: var(--bg-light);
+        }
+        
+        .error-container {
+            max-width: 600px;
+        }
+        
+        .error-icon {
+            font-size: 8rem;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .error-code {
+            font-size: 4rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .error-page h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .error-page p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-container">
+            <div class="error-logo">
+                <img src="assets/img/logo.webp" alt="LOGO" style="height: 60px;">
+            </div>
+            <div class="error-code">404</div>
+            <h2>Oops! Page Not Found</h2>
+            <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Don't worry, your health is still our priority!</p>
+            <div class="error-buttons">
+                <a href="index.html" class="btn btn-primary">Back to Home</a>
+                <a href="index.html#contact" class="btn btn-outline">Contact Support</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

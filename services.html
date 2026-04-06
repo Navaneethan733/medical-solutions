@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STACKLY Services - Premium Telemedicine, Pharmacy, Diagnostic, Pediatric and Emergency Care Solutions.">
+    <title>Our Services | STACKLY Medical Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Premium Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-logo"><i class="ri-heart-pulse-fill"></i></div>
+            <div class="loader-text">STACKLY</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/img/logo.webp" alt="STACKLY Logo"> STACKLY
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="ri-menu-4-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="services-hero">
+        <div class="container" data-aos="fade-up">
+            <h4 class="subtitle">Our Expertise</h4>
+            <h1 class="hero-title">Comprehensive Medical <br><span class="text-gradient">Care Solutions</span></h1>
+            <p class="hero-desc" style="margin: 0 auto 2.5rem; max-width: 650px;">From digital consultations to life-saving emergency care, we've built a complete health ecosystem that brings world-class medicine right to your doorstep.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#services-list" class="btn btn-primary btn-lg">Explore Services <i class="ri-arrow-down-line"></i></a>
+                <a href="404.html" class="btn btn-outline btn-lg"><i class="ri-calendar-check-line"></i> Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== STATS BAR ===================== -->
+    <section class="svc-stats" id="svcStats">
+        <div class="container">
+            <div class="svc-stats-grid" data-aos="fade-up">
+                <div class="svc-stat-item">
+                    <i class="ri-stethoscope-line"></i>
+                    <div>
+                        <strong class="svc-counter" data-target="50" data-suffix="+">0</strong>
+                        <span>Specialist Doctors</span>
+                    </div>
+                </div>
+                <div class="svc-stat-item">
+                    <i class="ri-hospital-line"></i>
+                    <div>
+                        <strong class="svc-counter" data-target="12" data-suffix="">0</strong>
+                        <span>Care Centers</span>
+                    </div>
+                </div>
+                <div class="svc-stat-item">
+                    <i class="ri-time-line"></i>
+                    <div>
+                        <strong class="svc-counter" data-target="24" data-suffix="/7">0</strong>
+                        <span>Emergency Support</span>
+                    </div>
+                </div>
+                <div class="svc-stat-item">
+                    <i class="ri-shield-check-line"></i>
+                    <div>
+                        <strong class="svc-counter" data-target="98" data-suffix="%">0</strong>
+                        <span>Patient Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE OVERVIEW CARDS ===================== -->
+    <section class="svc-overview" id="services-list">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">What We Offer</h4>
+                <h2 class="title">All <span class="text-gradient">Services</span> At A Glance</h2>
+                <p class="desc">Click on any service to learn more about our offerings and how they can help you.</p>
+            </div>
+            <div class="svc-overview-grid">
+                <a href="#teleconsultation" class="svc-overview-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="svc-overview-icon"><i class="ri-vidicon-line"></i></div>
+                    <h3>Teleconsultation</h3>
+                    <p>24/7 virtual visits with specialists</p>
+                </a>
+                <a href="#pharmacy" class="svc-overview-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="svc-overview-icon"><i class="ri-capsule-line"></i></div>
+                    <h3>Digital Pharmacy</h3>
+                    <p>Same-day doorstep delivery</p>
+                </a>
+                <a href="#diagnostics" class="svc-overview-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="svc-overview-icon"><i class="ri-microscope-line"></i></div>
+                    <h3>Diagnostics & Labs</h3>
+                    <p>AI-powered tests & imaging</p>
+                </a>
+                <a href="#pediatrics" class="svc-overview-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="svc-overview-icon"><i class="ri-hearts-line"></i></div>
+                    <h3>Pediatric Care</h3>
+                    <p>Specialist child health services</p>
+                </a>
+                <a href="#emergency" class="svc-overview-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="svc-overview-icon"><i class="ri-alarm-warning-line"></i></div>
+                    <h3>Emergency Care</h3>
+                    <p>Rapid 24/7 trauma response</p>
+                </a>
+                <a href="#mental-health" class="svc-overview-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="svc-overview-icon"><i class="ri-mental-health-line"></i></div>
+                    <h3>Mental Wellness</h3>
+                    <p>Therapy & wellbeing programs</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 1: TELECONSULTATION ===================== -->
+    <section class="service-detail-section" id="teleconsultation">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-image" data-aos="fade-right">
+                    <img src="assets/img/service1.webp" alt="Teleconsultation">
+                </div>
+                <div class="service-detail-content" data-aos="fade-left">
+                    <h4 class="subtitle">01. Virtual Care</h4>
+                    <h2>24/7 Pro Online <span class="text-gradient">Consultation</span></h2>
+                    <p>Access top-tier medical expertise without leaving your home. Our secure, HIPAA-compliant video platform connects you with board-certified specialists in minutes — no waiting rooms, no long commutes.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-shield-check-line"></i> Secure Encrypted Portal</div>
+                        <div class="service-feature-item"><i class="ri-history-line"></i> 12-Month Visit History</div>
+                        <div class="service-feature-item"><i class="ri-customer-service-2-line"></i> Instant Specialist Access</div>
+                        <div class="service-feature-item"><i class="ri-file-text-line"></i> Digital E-Prescriptions</div>
+                        <div class="service-feature-item"><i class="ri-global-line"></i> Multi-Language Support</div>
+                        <div class="service-feature-item"><i class="ri-smartphone-line"></i> Mobile App Available</div>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Book a Virtual Visit <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 2: PHARMACY ===================== -->
+    <section class="service-detail-section" id="pharmacy">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-content" data-aos="fade-right">
+                    <h4 class="subtitle">02. Medication</h4>
+                    <h2>Next-Day Digital <span class="text-gradient">Pharmacy Hub</span></h2>
+                    <p>Forget the pharmacy queues. Upload your prescription or get one during your virtual visit, and have your medications delivered to your doorstep. Our licensed pharmacists review every order for safety and interactions.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-truck-line"></i> Same-Day Delivery</div>
+                        <div class="service-feature-item"><i class="ri-refresh-line"></i> Auto-Refill Reminders</div>
+                        <div class="service-feature-item"><i class="ri-box-3-line"></i> Discreet Packaging</div>
+                        <div class="service-feature-item"><i class="ri-price-tag-3-line"></i> Price Match Guarantee</div>
+                        <div class="service-feature-item"><i class="ri-user-heart-line"></i> Pharmacist Consultation</div>
+                        <div class="service-feature-item"><i class="ri-scan-2-line"></i> Easy Prescription Scan</div>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Order Medication <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="service-detail-image" data-aos="fade-left">
+                    <img src="assets/img/service2.webp" alt="Digital Pharmacy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 3: DIAGNOSTICS ===================== -->
+    <section class="service-detail-section" id="diagnostics">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-image" data-aos="fade-right">
+                    <img src="assets/img/service3.webp" alt="Advanced Diagnostics">
+                </div>
+                <div class="service-detail-content" data-aos="fade-left">
+                    <h4 class="subtitle">03. Labs & Imaging</h4>
+                    <h2>State-of-the-Art <span class="text-gradient">Diagnostic Labs</span></h2>
+                    <p>Our labs use the latest pathology and imaging technology to provide results that are both faster and more accurate. Full body scans and molecular testing are available at all locations with digital delivery to your patient portal.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-heart-pulse-line"></i> MRI & CT Scans</div>
+                        <div class="service-feature-item"><i class="ri-flask-line"></i> Genetic Testing</div>
+                        <div class="service-feature-item"><i class="ri-attachment-line"></i> Digital Reports</div>
+                        <div class="service-feature-item"><i class="ri-microscope-line"></i> AI-Powered Analysis</div>
+                        <div class="service-feature-item"><i class="ri-home-4-line"></i> Home Sample Collection</div>
+                        <div class="service-feature-item"><i class="ri-time-line"></i> 6-Hour Report Turnaround</div>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Find a Lab Center <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 4: PEDIATRICS ===================== -->
+    <section class="service-detail-section" id="pediatrics">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-content" data-aos="fade-right">
+                    <h4 class="subtitle">04. Child Health</h4>
+                    <h2>Compassionate <span class="text-gradient">Pediatric Care</span></h2>
+                    <p>Our board-certified pediatricians provide comprehensive health services for newborns to teenagers. From routine wellness check-ups and immunization schedules to treating complex childhood conditions with a gentle, family-centered approach.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-baby-line"></i> Newborn Care</div>
+                        <div class="service-feature-item"><i class="ri-syringe-line"></i> Vaccine Programs</div>
+                        <div class="service-feature-item"><i class="ri-heart-3-line"></i> Developmental Checks</div>
+                        <div class="service-feature-item"><i class="ri-run-line"></i> Adolescent Health</div>
+                        <div class="service-feature-item"><i class="ri-parent-line"></i> Family Counseling</div>
+                        <div class="service-feature-item"><i class="ri-vidicon-line"></i> Virtual Pediatrics</div>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Book for Your Child <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="service-detail-image" data-aos="fade-left">
+                    <img src="assets/img/f2.webp" alt="Pediatric Care">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 5: EMERGENCY ===================== -->
+    <section class="service-detail-section" id="emergency">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-image" data-aos="fade-right">
+                    <img src="assets/img/f1.webp" alt="Emergency Care">
+                </div>
+                <div class="service-detail-content" data-aos="fade-left">
+                    <h4 class="subtitle">05. Crisis Response</h4>
+                    <h2>Rapid 24/7 <span class="text-gradient">Emergency Care</span></h2>
+                    <p>When every second counts, our emergency teams are ready. With state-of-the-art trauma bays, rapid triage protocols, and a staff of experienced emergency physicians, STACKLY provides life-saving care around the clock, every single day of the year.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-alarm-warning-line"></i> 5-Minute Triage</div>
+                        <div class="service-feature-item"><i class="ri-stethoscope-line"></i> Trauma Specialists</div>
+                        <div class="service-feature-item"><i class="ri-car-line"></i> Ambulance Dispatch</div>
+                        <div class="service-feature-item"><i class="ri-hospital-line"></i> Full ICU Support</div>
+                        <div class="service-feature-item"><i class="ri-nurse-line"></i> 24/7 Nursing Staff</div>
+                        <div class="service-feature-item"><i class="ri-phone-line"></i> Telehealth Triage Line</div>
+                    </div>
+                    <a href="tel:9876543210" class="btn btn-primary"><i class="ri-phone-fill"></i> Emergency: 9876543210</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE 6: MENTAL HEALTH ===================== -->
+    <section class="service-detail-section" id="mental-health">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-content" data-aos="fade-right">
+                    <h4 class="subtitle">06. Wellness</h4>
+                    <h2>Holistic Mental <span class="text-gradient">Wellness Programs</span></h2>
+                    <p>Your mental health is just as important as your physical health. STACKLY's team of licensed therapists, psychiatrists, and wellness coaches offer personalized programs to help you manage stress, anxiety, depression, and build lasting resilience.</p>
+                    <div class="service-features">
+                        <div class="service-feature-item"><i class="ri-mental-health-line"></i> 1-on-1 Therapy</div>
+                        <div class="service-feature-item"><i class="ri-group-line"></i> Group Sessions</div>
+                        <div class="service-feature-item"><i class="ri-capsule-line"></i> Psychiatry & Meds</div>
+                        <div class="service-feature-item"><i class="ri-leaf-line"></i> Mindfulness Programs</div>
+                        <div class="service-feature-item"><i class="ri-lock-line"></i> Confidential & Safe</div>
+                        <div class="service-feature-item"><i class="ri-vidicon-line"></i> Online Sessions</div>
+                    </div>
+                    <a href="404.html" class="btn btn-primary">Start Your Journey <i class="ri-arrow-right-line"></i></a>
+                </div>
+                <div class="service-detail-image" data-aos="fade-left">
+                    <img src="assets/img/e2.webp" alt="Mental Wellness">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WHY CHOOSE US ===================== -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Our Advantage</h4>
+                <h2 class="title">Why Patients Choose <span class="text-gradient">STACKLY</span></h2>
+                <p class="desc">We don't just treat illness — we build a lasting partnership in your health journey.</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-us-icon"><i class="ri-award-line"></i></div>
+                    <h3>Accredited Excellence</h3>
+                    <p>Fully JCI-accredited facilities with 15+ years of demonstrated clinical excellence and patient safety standards.</p>
+                </div>
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-us-icon"><i class="ri-team-line"></i></div>
+                    <h3>Expert Specialists</h3>
+                    <p>Our 50+ board-certified specialists bring internationally trained expertise across all major medical disciplines.</p>
+                </div>
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-us-icon"><i class="ri-smartphone-line"></i></div>
+                    <h3>Tech-First Platform</h3>
+                    <p>Seamlessly manage appointments, prescriptions, and lab results through our intuitive patient portal and mobile app.</p>
+                </div>
+                <div class="why-us-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-us-icon"><i class="ri-hand-heart-line"></i></div>
+                    <h3>Patient-Centered Care</h3>
+                    <p>Every treatment plan is personalized. We listen first and build a care pathway tailored entirely to your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== HOW TO BOOK ===================== -->
+    <section class="process" id="how-to-book">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">Simple Process</h4>
+                <h2 class="title">Get Care in <span class="text-gradient">4 Easy Steps</span></h2>
+                <p class="desc">Accessing premium healthcare has never been simpler. Start your journey in minutes.</p>
+            </div>
+            <div class="process-steps" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-step">
+                    <span class="step-number">01</span>
+                    <div class="step-icon"><i class="ri-user-add-line"></i></div>
+                    <h3>Create Account</h3>
+                    <p>Sign up for a free STACKLY account in under 2 minutes. Provide your basic health profile to get personalized recommendations.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">02</span>
+                    <div class="step-icon"><i class="ri-search-2-line"></i></div>
+                    <h3>Choose a Service</h3>
+                    <p>Browse our comprehensive service catalog and select the specialist or care type that fits your health need.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">03</span>
+                    <div class="step-icon"><i class="ri-calendar-check-line"></i></div>
+                    <h3>Book a Slot</h3>
+                    <p>Pick a date and time that works for you. Slots are available within hours, including same-day emergency appointments.</p>
+                </div>
+                <div class="process-step">
+                    <span class="step-number">04</span>
+                    <div class="step-icon"><i class="ri-heart-pulse-line"></i></div>
+                    <h3>Receive Care</h3>
+                    <p>Meet your doctor virtually or in-person, receive your diagnosis, prescription, or referral — all managed in one platform.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICES FAQ ===================== -->
+    <section class="faq" id="services-faq">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h4 class="subtitle">FAQ</h4>
+                <h2 class="title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="desc">Everything you need to know before your first STACKLY appointment.</p>
+            </div>
+            <div class="faq-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are virtual consultations covered by insurance?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we work with over 40 major insurance providers. You can verify your coverage in real-time during the booking process. Out-of-pocket consultation fees start at just $25 for uninsured patients.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How quickly can I see a doctor online?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically within 10 to 30 minutes of booking for general consultations. Specialist appointments can often be scheduled for the same day or next day. For emergencies, our triage line connects you immediately.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I get a prescription through a virtual visit?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Our licensed physicians can issue electronic prescriptions for most medications during a virtual visit. Controlled substances may require an in-person evaluation per local regulations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How does home sample collection for labs work?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Book a home collection slot online and a certified phlebotomist will visit your location at the chosen time. Samples are transported to our certified lab, and digital results are uploaded to your portal within 6 hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is my health data private and secure?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. All patient data is encrypted end-to-end and stored on HIPAA-compliant servers. We never sell or share your data with third parties without your explicit consent. Your health history is yours alone.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What should I do in a medical emergency?</h3>
+                        <i class="ri-add-line"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Call our 24/7 emergency line immediately at 9876543210. Our dispatcher will coordinate ambulance dispatch and alert our trauma team. Do not attempt to drive to the hospital yourself in a life-threatening emergency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA BANNER ===================== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box" data-aos="zoom-in">
+                <div class="cta-content">
+                    <h2>Ready to Take Control of Your Health?</h2>
+                    <p>Join over 50,000 patients who trust STACKLY for their complete healthcare journey. Book your first appointment today — it's free to get started.</p>
+                </div>
+                <div class="cta-action" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="404.html" class="btn btn-white btn-lg">Book Appointment</a>
+                    <a href="tel:+1234567890" class="btn btn-lg" style="background: rgba(255,255,255,0.15); color: white; border: 2px solid rgba(255,255,255,0.5);"><i class="ri-phone-line"></i> Call Us Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="logo footer-logo">
+                    <img src="assets/img/logo.webp" alt="STACKLY Logo"> STACKLY
+                </a>
+                <p>Delivering premium medical solutions and redefining healthcare through technology, empathy, and expertise.</p>
+                <div class="social-links">
+                    <a href="404.html"><i class="ri-facebook-fill"></i></a>
+                    <a href="404.html"><i class="ri-twitter-x-line"></i></a>
+                    <a href="404.html"><i class="ri-instagram-line"></i></a>
+                    <a href="404.html"><i class="ri-linkedin-fill"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#teleconsultation">Teleconsultation</a></li>
+                    <li><a href="#pharmacy">Digital Pharmacy</a></li>
+                    <li><a href="#diagnostics">Diagnostics & Labs</a></li>
+                    <li><a href="#pediatrics">Pediatric Care</a></li>
+                    <li><a href="#emergency">Emergency Care</a></li>
+                    <li><a href="#mental-health">Mental Wellness</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact-col">
+                <h4>Contact Us</h4>
+                <p><i class="ri-map-pin-line"></i> Salem, Tamilnadu, India</p>
+                <p><i class="ri-phone-line"></i> 9876543210</p>
+                <p><i class="ri-mail-line"></i> contact@stackly.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 STACKLY Medical Solutions. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your STACKLY medical account. Access your health records, book appointments, and more.">
+    <title>Signup | STACKLY Medical Solutions</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="auth-page">
+
+    <!-- Premium Preloader -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99999;">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-logo"><i class="ri-heart-pulse-fill"></i></div>
+            <div class="loader-text">STACKLY</div>
+        </div>
+    </div>
+
+    <div class="auth-wrapper">
+        <div class="auth-container">
+            <!-- Left Panel: Branding & News -->
+            <div class="auth-brand-panel" style="background: url('assets/img/login.webp') center/cover no-repeat;">
+                <div class="auth-brand-overlay"></div>
+                <div class="auth-brand-content" data-aos="fade-right">
+                    <a href="index.html" class="logo auth-logo text-white">
+                        <img src="assets/img/logo.webp" alt="STACKLY"> STACKLY
+                    </a>
+                    <div class="auth-brand-text">
+                        <h2>Join Our <span class="text-gradient-white">Community.</span></h2>
+                        <p>Access your medical records, consult with top specialists, and manage your wellness journey from anywhere in the world.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Signup Form -->
+            <div class="auth-form-panel" data-aos="fade-left">
+                <div class="auth-form-content">
+                    <div class="auth-header">
+                        <h1>Create Account</h1>
+                        <p>Join the future of healthcare today.</p>
+                    </div>
+
+                    <form action="#" class="auth-form">
+                        <div class="form-group">
+                            <label for="userRole">Account Type</label>
+                            <div class="input-with-icon">
+                                <i class="ri-user-settings-line"></i>
+                                <select id="userRole" required>
+                                    <option value="patient">Patient</option>
+                                    <option value="doctor">Doctor</option>
+                                    <option value="staff">Staff/Admin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <div class="input-with-icon">
+                                    <i class="ri-user-line"></i>
+                                    <input type="text" id="firstName" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <div class="input-with-icon">
+                                    <i class="ri-user-line"></i>
+                                    <input type="text" id="lastName" placeholder="Last Name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="ri-mail-line"></i>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <i class="ri-phone-line"></i>
+                                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-with-icon">
+                                <i class="ri-lock-2-line"></i>
+                                <input type="password" id="password" placeholder="Create a password" required>
+                                <button type="button" class="password-toggle" id="passwordToggle">
+                                    <i class="ri-eye-off-line"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <label class="checkbox-container">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="404.html">Terms & Conditions</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-full btn-lg">Create Account <i class="ri-user-add-line"></i></button>
+
+                        <div class="auth-divider">
+                            <span>Or Sign Up with</span>
+                        </div>
+
+                        <div class="social-auth">
+                            <button type="button" class="btn btn-outline w-full social-btn">
+                                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"> Google
+                            </button>
+                            <button type="button" class="btn btn-outline w-full social-btn">
+                                <i class="ri-apple-fill"></i> Apple
+                            </button>
+                        </div>
+
+                        <p class="auth-footer">
+                            Already have an account? <a href="login.html">Login</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Password Toggle
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.getElementById('passwordToggle');
+
+        if (passwordToggle) {
+            passwordToggle.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                passwordToggle.querySelector('i').classList.toggle('ri-eye-line');
+                passwordToggle.querySelector('i').classList.toggle('ri-eye-off-line');
+            });
+        }
+    </script>
+</body>
+</html>
