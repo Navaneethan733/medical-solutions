@@ -271,6 +271,12 @@ img {
     width: 100%;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .menu-toggle {
     display: none;
     background: none;
@@ -1078,8 +1084,16 @@ img {
 }
 
 @media (max-width: 768px) {
-    .nav-links, .nav-actions .btn {
+    .nav-links {
         display: none;
+    }
+    .nav-actions .btn {
+        display: inline-flex;
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+    }
+    .nav-actions {
+        gap: 0.8rem;
     }
     .menu-toggle {
         display: block;
