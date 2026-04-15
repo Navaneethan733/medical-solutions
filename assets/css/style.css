@@ -3495,6 +3495,30 @@ img {
     width: 100%;
 }
 
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.back-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+    color: var(--primary);
+}
+
+.back-btn:hover i {
+    transform: translateX(-4px);
+}
+
 .auth-header {
     margin-bottom: 2.5rem;
 }

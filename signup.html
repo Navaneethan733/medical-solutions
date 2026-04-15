@@ -50,6 +50,9 @@
             <!-- Right Panel: Signup Form -->
             <div class="auth-form-panel" data-aos="fade-left">
                 <div class="auth-form-content">
+                    <a href="index.html" class="back-btn">
+                        <i class="ri-arrow-left-line"></i> Go Back
+                    </a>
                     <div class="auth-header">
                         <h1>Create Account</h1>
                         <p>Join the future of healthcare today.</p>
@@ -146,6 +149,18 @@
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Hide Preloader on page load
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.transition = 'opacity 0.6s ease';
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 600);
+            }
+        });
+
         AOS.init({
             duration: 1000,
             once: true,
